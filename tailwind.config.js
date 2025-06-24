@@ -9,6 +9,7 @@ export default {
       fontFamily:{
         fredoka: ['fredoka', 'sans-serif'],
         SpecialSan:['Special Sans', 'sans-serif'],
+        DMSans:['DMSans'],
       },
       colors: {
         brand: "#FF5722", // define your custom color with a name like 'brand'

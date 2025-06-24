@@ -6,6 +6,10 @@
   font-family:SpecialSans ;
   src: url("../public/assets/fonts/CanvaSans.woff2") format("woff2");
 }
+@font-face {
+  font-family:DMSans ;
+  src: url("../public/assets/fonts/DMSans.ttf") format("truetype");
+}
 @tailwind base;
 
 @tailwind components;
@@ -16,4 +20,8 @@
 }
 @theme {
   --font-doto: SpecialSans, sans-serif;
+}
+
+@theme {
+  --font-doto : DMSans ;
 }

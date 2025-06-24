@@ -10,10 +10,10 @@ const Page3 = () => {
     <div className="min-h-screen w-full px-4 py-10 bg-white dark:bg-gray-900 dark:text-white">
       {/* Heading */}
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl ml-4 sm:text-5xl md:text-6xl font-bold tracking-tighter text-darkblue">
+        <h1 className="text-2xl ml-4 sm:text-4xl md:text-4xl font-normal tracking-tighter text-darkblue">
           Our Curated Tours
         </h1>
-        <p className="ml-5 text-xl text-lightblue">
+        <p className="ml-5  text-xs lg:text-xm md:text-xm  text-lightblue">
           Experience our city with us.
         </p>
       </div>

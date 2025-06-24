@@ -11,7 +11,7 @@ const card5 = () => {
             playsInline
             className="w-full h-[40vh] object-cover rounded-t-3xl"
           >
-            <source src="https://res.cloudinary.com/dmgib4rwd/video/upload/q_auto,f_auto,vc_auto/ac_none/v1750485273/villagecard_a3f9sm.mp4" type="video/mp4" />
+            <source src="https://res.cloudinary.com/dmgib4rwd/video/upload/v1750491888/heritagewalkcard_-_Made_with_Clipchamp_hjgbwq.mp4" type="video/mp4" />
          
           </video>
           <h1 className="px-4 py-1 text-2xl font-medium tracking-tighter leading-1 text-yellow-500">

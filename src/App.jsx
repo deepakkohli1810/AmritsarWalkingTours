@@ -3,6 +3,9 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Page2 from './components/Page2'
 import Page3 from './components/Page3'
+import WhyUs from './components/WhyUs'
+import SuggestiveTours from './components/SuggestiveTours'
+
 import BottomBar from './components/bottomBar'
 
 const App = () => {
@@ -12,7 +15,9 @@ const App = () => {
            <BottomBar/>
            <Hero/>
            <Page3/>
-           <Page2/>
+           <SuggestiveTours/>
+            <WhyUs/>
+           
      </>
   )
 }
