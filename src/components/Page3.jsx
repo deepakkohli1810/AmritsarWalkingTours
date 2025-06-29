@@ -5,6 +5,7 @@ import Card3 from './cards/card3';
 import Card4 from './cards/card4';
 import Card5 from './cards/card5';
 import { Car } from 'lucide-react';
+import AllCards from './cards/AllCards';
 const Page3 = () => {
   return (
     <div className="min-h-screen w-full px-4 py-10 bg-white dark:bg-gray-900 dark:text-white">
@@ -19,13 +20,8 @@ const Page3 = () => {
       </div>
 
       {/* Tour Cards */}
-      <div className="max-w-7xl  mx-auto mt-4 lg:mt-10 md:mt-10 grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-4 sm:px-10">
-    
-     <Card1 />
-     <Card2 />  
-      <Card3 />
-      <Card4 />
-      <Card5 /> 
+      <div className="">
+       <AllCards/>
       </div>
     </div>
   );

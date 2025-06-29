@@ -12,6 +12,12 @@ import Footer from './components/Footer'
 import TourDetailsPage from './components/TourDetailsPage'
 import Home from './components/Pages/Home'
 import GoldenTemple from './components/Pages/GoldenTemple'
+import BorderTour from './components/Pages/WagahBorder'
+import FoodTour from './components/Pages/FoodTour'
+import HeritageWalk from './components/Pages/HeritageWalk'
+import VillageTour from './components/Pages/VillageTour'
+import OneDayExcursion from './components/Pages/OneDayExcursion'
+import TwoDayExcursion from './components/Pages/TwoDayExcursion'
 const App = () => {
   return (
      <>
@@ -19,6 +25,12 @@ const App = () => {
         <Routes>
        <Route path="/" element={<Home/>} />
        <Route path="/GoldenTemple" element={<GoldenTemple/>} />
+       <Route path="/BorderTour" element={<BorderTour/>} />
+       <Route path="/FoodTour" element={<FoodTour/>} />
+       <Route path="/VillageTour" element={<VillageTour/>} />
+         <Route path="/HeritageWalk" element={<HeritageWalk/>} />
+         <Route path="/OneDayExcursion" element={<OneDayExcursion />} />
+         <Route path="/TwoDayExcursion" element={<TwoDayExcursion />} />
     </Routes>
      </>
   )

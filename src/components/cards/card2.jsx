@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { use } from 'react'
+import { useNavigate } from "react-router-dom";
+
 
 const card2 = () => {
+  const navigate = useNavigate();
   return (
     <div>
          {/* Card 2 */}
@@ -19,7 +22,7 @@ const card2 = () => {
           </h1>
            <p className='ml-4 mb-3 text-lightblue leading-1'>Explore from just ₹999</p>
           <div className="p-4 flex justify-between items-center">
-            <button className="text-darkblue text-lg">View Details</button>
+            <button onClick={() => navigate("/BorderTour")}   className="text-darkblue text-lg">View Details</button>
             <button className="bg-darkblue px-4 py-2 rounded-3xl text-white">
               Book Now
             </button>

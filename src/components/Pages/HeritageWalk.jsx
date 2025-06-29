@@ -10,7 +10,6 @@ import { div } from "framer-motion/client";
 import SuggestiveTours from "../SuggestiveTours";
 import WhyUs from "../WhyUs";
 import Footer from "../Footer";
-import BoottomBar from "../bottomBar";
 
 // Reusable Button component
 const Button = ({ children, className = "", variant = "default", ...props }) => {
@@ -40,18 +39,26 @@ const TourHero = () => {
   const [previewOpen, setPreviewOpen] = useState(false);
 
   const images = [
-    "/assets/photos/golden temple.png",
-    "/assets/GoldenTemple/photo15.png",
-    "/assets/GoldenTemple/photo16.png",
-    "/assets/GoldenTemple/photo13.png",
-    "/assets/GoldenTemple/photo14.png",
-    "/assets/GoldenTemple/photo18.png",
-    "/assets/GoldenTemple/photo17.png",
-    "/assets/GoldenTemple/photo19.png",
-    "/assets/GoldenTemple/photo20.png",
-    "/assets/GoldenTemple/photo21.png",
-    "/assets/GoldenTemple/photo22.png",
-    "/assets/GoldenTemple/photo23.png",
+      "/assets/WagahBorder/photo28.png",
+    "/assets/WagahBorder/photo24.png",
+    "/assets/WagahBorder/photo25.png",
+    "/assets/WagahBorder/photo26.png",  
+    "/assets/WagahBorder/photo27.png",
+    "/assets/WagahBorder/photo29.png",
+    "/assets/WagahBorder/photo30.png",
+    "/assets/WagahBorder/photo31.png",
+
+    "/assets/WagahBorder/photo32.png",
+    "/assets/WagahBorder/photo33.png",
+    "/assets/WagahBorder/photo34.png",
+    "/assets/WagahBorder/photo35.png",
+    "/assets/WagahBorder/photo36.png",
+    "/assets/WagahBorder/photo37.png",
+    "/assets/WagahBorder/photo38.png",
+    "/assets/WagahBorder/photo39.png",
+    "/assets/WagahBorder/photo40.png",
+    "/assets/WagahBorder/photo41.png",
+
   ];
   const thumbnails = images;
 
@@ -72,7 +79,7 @@ React.useEffect(() => {
 return (
     <section className="mb-12">
         <h1 className="text-4xl font-medium text-yellow-600 font-fredoka">
-            <span className="text-darkblue font-light">AWT's Special </span> Golden Temple Tour
+            <span className="text-darkblue font-light">AWT's Special </span> Heritage Walk
         </h1>
         <p className="text-lightblue mt-2">Walk Alongside a Storytelling Expert</p>
 
@@ -213,36 +220,35 @@ return (
 };
 
     const TourOverview = () => {
-    const highlights = [
-        "Darbar Sahib – the main sanctum surrounded by the Amrit Sarovar (holy pool)",
-        "Akal Takht – the highest seat of Sikh authority and spiritual governance",
-        "Langar Hall – where volunteers prepare and serve hot meals with love and equality",
-        "Central Sikh Museum – preserving stories of sacrifice, courage, and Sikh heritage",
-        "Witness devotion in action, experience true humility, and leave with a sense of peace and belonging."
-    ];
-    return (
-        <Card className="p-6 mb-12 border-t-4 border-lightblue shadow-lg">
-        <h2 className="text-3xl font-bold mb-6">Golden Temple Tour Overview
-</h2>
-        <p className="mb-6 text-gray-700">
-          Embark on a soulful journey to the Golden Temple, the holiest shrine of Sikhism. Discover its shimmering beauty, spiritual significance, and the warmth of its people. Explore the largest community kitchen in the world, serving free meals to thousands every day, regardless of religion or background.
-        </p>
-        <ul className="list-disc ml-6 space-y-2 text-gray-700">
-            {highlights.map((point, idx) => <li key={idx}>{point}</li>)}
-        </ul>
-        <div className="mt-6 text-gray-700">
-          <p>
-            <strong>Duration:</strong> 3-4 hours <br />
-            <strong>Languages Offered:</strong> English, Hindi, Punjabi <br />
-            <strong>Best Time to Visit:</strong> Early morning or evening for the mesmerizing Palki Sahib ceremony <br />
-            <strong>Dress Code:</strong> Modest attire required; head covering mandatory (scarves available on site)
-          </p>
-          <p className="mt-4">
-            Our expert guides will share fascinating stories, help you participate in sacred rituals, and ensure a respectful, memorable experience for all ages.
-          </p>
-        </div>
-        </Card>
-    );
+        const highlights = [
+            "Stroll through Amritsar’s historic lanes and bustling bazaars with a local expert",
+            "Discover hidden gems, centuries-old havelis, and vibrant street art in the old city",
+            "Visit iconic landmarks like the Golden Temple, Jallianwala Bagh, and Akhara Sangalwala",
+            "Experience the city’s rich Sikh, Hindu, and colonial heritage firsthand",
+            "Enjoy authentic local snacks and learn about Amritsar’s unique culture and traditions"
+        ];
+        return (
+            <Card className="p-6 mb-12 border-t-4 border-lightblue shadow-lg">
+                <h2 className="text-3xl font-bold mb-6">Amritsar Heritage Walk Overview</h2>
+                <p className="mb-6 text-gray-700">
+                    Step back in time as you explore the heart of Amritsar on a guided heritage walk. Wander through narrow alleys, vibrant bazaars, and historic neighborhoods that have witnessed centuries of history. This immersive experience reveals the city’s architectural marvels, spiritual sites, and the stories that shaped Amritsar’s unique identity.
+                </p>
+                <ul className="list-disc ml-6 space-y-2 text-gray-700">
+                    {highlights.map((point, idx) => <li key={idx}>{point}</li>)}
+                </ul>
+                <div className="mt-6 text-gray-700">
+                    <p>
+                        <strong>Duration:</strong> 2-3 hours <br />
+                        <strong>Languages Offered:</strong> English, Hindi, Punjabi <br />
+                        <strong>Best Time to Visit:</strong> Early morning or late afternoon <br />
+                        <strong>Dress Code:</strong> Comfortable walking shoes and modest attire
+                    </p>
+                    <p className="mt-4">
+                        Led by passionate local guides, this walk is perfect for history buffs, culture lovers, and anyone eager to experience the authentic soul of Amritsar beyond the usual tourist trail.
+                    </p>
+                </div>
+            </Card>
+        );
     };
 
 const TourInclusions = () => {
@@ -253,27 +259,24 @@ const TourInclusions = () => {
                 What's Included
             </h2>
             <ul className="list-disc ml-6 text-gray-700 mb-2">
-                <li>All Fees and Taxes</li>
-                <li>Lunch (Langar experience at Golden Temple)</li>
-                <li>Private transportation</li>
-                <li>Hotel pickup/drop-off</li>
-                <li>Expert English/Hindi/Punjabi-speaking guide</li>
-                <li>Guided tour of Golden Temple complex</li>
-                <li>Participation in Palki Sahib ceremony (if timing permits)</li>
-                <li>Visit to Central Sikh Museum</li>
-                <li>Assistance with head covering and dress code</li>
-                <li>Bottled water</li>
-                <li>Photo opportunities at key locations</li>
+                <li>Guided heritage walk with a knowledgeable local expert</li>
+                <li>Visits to key historical sites and hidden gems in Amritsar’s old city</li>
+                <li>Insightful commentary on history, architecture, and local culture</li>
+                <li>Opportunities to interact with local artisans and shopkeepers</li>
+                <li>Tasting of authentic local snacks and refreshments</li>
+                <li>Photo stops at iconic landmarks and vibrant street art</li>
+                <li>Assistance with navigating narrow lanes and bazaars</li>
+                <li>Personalized recommendations for further exploration</li>
             </ul>
             <h3 className="font-semibold text-red-700 mt-6 mb-2 flex items-center gap-2">
                 <X className="w-5 h-5 text-red-500" />
                 Not Included
             </h3>
             <ul className="list-disc ml-6 text-gray-700">
-                <li>Gratuities</li>
-                <li>Personal expenses</li>
-                <li>Souvenirs</li>
-                <li>Additional food or drinks outside of Langar</li>
+                <li>Meals beyond included tastings</li>
+                <li>Gratuities for guide</li>
+                <li>Personal purchases or souvenirs</li>
+                <li>Entry fees to paid attractions (if any, optional)</li>
             </ul>
         </Card>
     );
@@ -318,37 +321,52 @@ const TourItinerary = () => {
     const [showAll, setShowAll] = useState(false);
     const stops = [
         {
-            title: "Meet at Golden Temple Entrance",
+            title: "Start at Town Hall",
             duration: "10 min",
-            description: "Meet your guide, get a head covering, and a brief orientation.",
+            description: "Meet your guide at the historic Town Hall, get an introduction to Amritsar’s old city and the walk ahead.",
         },
         {
-            title: "Darbar Sahib (Main Sanctum)",
-            duration: "45 min",
-            description: "Explore the heart of the Golden Temple and learn about its history.",
-        },
-        {
-            title: "Akal Takht",
+            title: "Heritage Street & Partition Museum",
             duration: "20 min",
-            description: "Visit the highest seat of Sikh authority and hear inspiring stories.",
+            description: "Stroll down the beautifully restored Heritage Street, passing colonial-era buildings and the Partition Museum (outside view).",
         },
         {
-            title: "Central Sikh Museum",
-            duration: "20 min",
-            description: "Discover Sikh heritage and stories of sacrifice.",
-        },
-        {
-            title: "Langar Hall (Community Kitchen)",
-            duration: "40 min",
-            description: "Experience the world’s largest free kitchen and the spirit of seva.",
-        },
-        {
-            title: "Palki Sahib Ceremony (if timing permits)",
+            title: "Jallianwala Bagh",
             duration: "30 min",
-            description: "Witness the mesmerizing evening or morning procession.",
+            description: "Visit the poignant site of the 1919 massacre, learn about its history, and see the memorial and bullet marks.",
+        },
+        {
+            title: "Golden Temple (Sri Harmandir Sahib)",
+            duration: "40 min",
+            description: "Marvel at the Golden Temple’s stunning architecture, learn about Sikh traditions, and witness the spiritual atmosphere.",
+        },
+        {
+            title: "Akhara Sangalwala & Havelis",
+            duration: "20 min",
+            description: "Explore a traditional wrestling arena and admire centuries-old havelis with intricate facades and balconies.",
+        },
+        {
+            title: "Katra Jaimal Singh Bazaar",
+            duration: "20 min",
+            description: "Wander through bustling bazaars famous for phulkari embroidery, spices, and local crafts.",
+        },
+        {
+            title: "Chowk Passian & Street Art",
+            duration: "15 min",
+            description: "Discover vibrant street art and murals depicting Amritsar’s culture and history.",
+        },
+        {
+            title: "Tasting Local Snacks",
+            duration: "15 min",
+            description: "Enjoy authentic Amritsari snacks like kulcha, lassi, or jalebi at a local eatery (included).",
+        },
+        {
+            title: "End at Hall Bazaar",
+            duration: "10 min",
+            description: "Conclude the walk at Hall Bazaar, with tips for further exploration and shopping.",
         }
     ];
-    const visible = showAll ? stops : stops.slice(0, 3);
+    const visible = showAll ? stops : stops.slice(0, 4);
 
     return (
         <Card className="p-4 sm:p-6 mb-12">
@@ -390,26 +408,26 @@ const TourItinerary = () => {
 };
 
 const videos = [
-  {
-    url: 'https://www.youtube.com/embed/ivTsHLtNM_U',
-    title: 'React JS Crash Course 2024',
-    description: 'Start your React journey with this beginner crash course.',
-  },
-  {
-    url: 'https://www.youtube.com/embed/mVz0V9lqivw',
-    title: 'React Projects for Beginners',
-    description: 'Hands-on React projects to boost your skills.',
-  },
-  {
-    url: 'https://www.youtube.com/embed/_bKE6SGPIs8',
-    title: 'React Hooks Explained Simply',
-    description: 'Learn useState, useEffect and more in this clear guide.',
-  },
-  {
-    url: 'https://www.youtube.com/embed/52nlfLk99gU',
-    title: 'React Interview Questions',
-    description: 'Most asked React interview questions and answers.',
-  },
+    {
+        url: 'https://www.youtube.com/embed/ivTsHLtNM_U',
+        title: 'Golden Temple Amritsar Full Tour & History',
+        description: 'Explore the Golden Temple, its history, and spiritual significance in this detailed walkthrough.',
+    },
+    {
+        url: 'https://www.youtube.com/embed/mVz0V9lqivw',
+        title: 'Langar at Golden Temple: World’s Largest Free Kitchen',
+        description: 'Discover how the Golden Temple serves thousands daily with its incredible community kitchen.',
+    },
+    {
+        url: 'https://www.youtube.com/embed/_bKE6SGPIs8',
+        title: 'Palki Sahib Ceremony at Golden Temple',
+        description: 'Experience the mesmerizing Palki Sahib ceremony, a highlight of the Golden Temple visit.',
+    },
+    {
+        url: 'https://www.youtube.com/embed/52nlfLk99gU',
+        title: 'Golden Temple Visitor Guide: Tips & Etiquette',
+        description: 'Essential tips and etiquette for first-time visitors to the Golden Temple.',
+    },
 ];
 
 const SuggestedVideo = () => {
@@ -460,7 +478,6 @@ const TourDetailsPage = () => {
         <SuggestiveTours />
         <WhyUs />
         <Footer/>
-        <BoottomBar />
     </>
   );
 };

@@ -1,32 +1,28 @@
 import React from "react";
-import { Home, Search, User  , Binoculars ,Contact , Image} from "lucide-react"; // Optional: Replace with your own icons
+import { Home, Binoculars, Contact, Image } from "lucide-react";
 
 const BottomBar = () => {
   return (
-    <div className="fixed bottom-0 pb-4 sm:pb-0 w-full bg-gray-200 shadow-md p-2 py- flex justify-around items-center sm:hidden z-50">
-      <button className=" text-lightblue  flex items-center justify-center flex-col  hover:text-darkblue  ">
-        <Home    size={20} />
-        <p className=" ">Home</p>
+    <div className="fixed bottom-4 left-1/2 -translate-x-1/2 w-[95vw] max-w-md bg-white/60 backdrop-blur-md rounded-2xl shadow-lg flex justify-between items-center px-4 py-2 sm:hidden z-50 border border-gray-200">
+      <button className="flex flex-col items-center text-darkbluex hover:text--lightbluetransition">
+        <Home size={19} strokeWidth={1} />
+        <span className="text-xs mt-1">Home</span>
       </button>
-        <button className=" text-lightblue  flex items-center justify-center flex-col  hover:text-darkblue ">
-        <Binoculars size={20} />
-        <p className=" ">Tours</p>
+      <button className="flex flex-col items-center text-darkbluex hover:text-lightblue transition">
+        <Binoculars size={19} strokeWidth={1}  />
+        <span className="text-xs mt-1">Tours</span>
       </button>
-         <button className=" text-lightblue flex items-center justify-center flex-col  hover:text-darkblue  ">
-      
-        <p className=" text-2xl font-fredoka font-semibold ">AWT </p>
+      <button className="flex flex-col items-center justify-center bg-white text-darkblue rounded-full w-14 h-14 -mt-8 shadow-lg border-2 font-fredoka  border-darkblue ">
+        <span className="text-lg font-bold tracking-wide">AWT</span>
       </button>
-         <button className=" text-lightblue flex items-center justify-center flex-col  hover:text-darkblue  ">
-        <Image size={20} />
-        <p className=" ">Gallery 
-        </p>
+      <button className="flex flex-col items-center text-darkbluex hover:text-lightblue transition">
+        <Image size={19} strokeWidth={1}  />
+        <span className="text-xs mt-1">Gallery</span>
       </button>
-       <button className=" text-lightblue flex items-center justify-center flex-col  hover:text-darkblue  ">
-        <Contact size={20} />
-        <p className=" ">Contact</p>
+      <button className="flex flex-col items-center text-darkbluex hover:text-lightblue transition">
+        <Contact size={19} strokeWidth={1}  />
+        <span className="text-xs mt-1">Contact</span>
       </button>
-      
-   
     </div>
   );
 };

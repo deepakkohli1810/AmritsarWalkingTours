@@ -10,7 +10,6 @@ import { div } from "framer-motion/client";
 import SuggestiveTours from "../SuggestiveTours";
 import WhyUs from "../WhyUs";
 import Footer from "../Footer";
-import BoottomBar from "../bottomBar";
 
 // Reusable Button component
 const Button = ({ children, className = "", variant = "default", ...props }) => {
@@ -40,18 +39,26 @@ const TourHero = () => {
   const [previewOpen, setPreviewOpen] = useState(false);
 
   const images = [
-    "/assets/photos/golden temple.png",
-    "/assets/GoldenTemple/photo15.png",
-    "/assets/GoldenTemple/photo16.png",
-    "/assets/GoldenTemple/photo13.png",
-    "/assets/GoldenTemple/photo14.png",
-    "/assets/GoldenTemple/photo18.png",
-    "/assets/GoldenTemple/photo17.png",
-    "/assets/GoldenTemple/photo19.png",
-    "/assets/GoldenTemple/photo20.png",
-    "/assets/GoldenTemple/photo21.png",
-    "/assets/GoldenTemple/photo22.png",
-    "/assets/GoldenTemple/photo23.png",
+      "/assets/WagahBorder/photo28.png",
+    "/assets/WagahBorder/photo24.png",
+    "/assets/WagahBorder/photo25.png",
+    "/assets/WagahBorder/photo26.png",  
+    "/assets/WagahBorder/photo27.png",
+    "/assets/WagahBorder/photo29.png",
+    "/assets/WagahBorder/photo30.png",
+    "/assets/WagahBorder/photo31.png",
+
+    "/assets/WagahBorder/photo32.png",
+    "/assets/WagahBorder/photo33.png",
+    "/assets/WagahBorder/photo34.png",
+    "/assets/WagahBorder/photo35.png",
+    "/assets/WagahBorder/photo36.png",
+    "/assets/WagahBorder/photo37.png",
+    "/assets/WagahBorder/photo38.png",
+    "/assets/WagahBorder/photo39.png",
+    "/assets/WagahBorder/photo40.png",
+    "/assets/WagahBorder/photo41.png",
+
   ];
   const thumbnails = images;
 
@@ -72,7 +79,7 @@ React.useEffect(() => {
 return (
     <section className="mb-12">
         <h1 className="text-4xl font-medium text-yellow-600 font-fredoka">
-            <span className="text-darkblue font-light">AWT's Special </span> Golden Temple Tour
+            <span className="text-darkblue font-light">AWT's Package </span> One Day Excursion 
         </h1>
         <p className="text-lightblue mt-2">Walk Alongside a Storytelling Expert</p>
 
@@ -213,36 +220,35 @@ return (
 };
 
     const TourOverview = () => {
-    const highlights = [
-        "Darbar Sahib – the main sanctum surrounded by the Amrit Sarovar (holy pool)",
-        "Akal Takht – the highest seat of Sikh authority and spiritual governance",
-        "Langar Hall – where volunteers prepare and serve hot meals with love and equality",
-        "Central Sikh Museum – preserving stories of sacrifice, courage, and Sikh heritage",
-        "Witness devotion in action, experience true humility, and leave with a sense of peace and belonging."
-    ];
-    return (
-        <Card className="p-6 mb-12 border-t-4 border-lightblue shadow-lg">
-        <h2 className="text-3xl font-bold mb-6">Golden Temple Tour Overview
-</h2>
-        <p className="mb-6 text-gray-700">
-          Embark on a soulful journey to the Golden Temple, the holiest shrine of Sikhism. Discover its shimmering beauty, spiritual significance, and the warmth of its people. Explore the largest community kitchen in the world, serving free meals to thousands every day, regardless of religion or background.
-        </p>
-        <ul className="list-disc ml-6 space-y-2 text-gray-700">
-            {highlights.map((point, idx) => <li key={idx}>{point}</li>)}
-        </ul>
-        <div className="mt-6 text-gray-700">
-          <p>
-            <strong>Duration:</strong> 3-4 hours <br />
-            <strong>Languages Offered:</strong> English, Hindi, Punjabi <br />
-            <strong>Best Time to Visit:</strong> Early morning or evening for the mesmerizing Palki Sahib ceremony <br />
-            <strong>Dress Code:</strong> Modest attire required; head covering mandatory (scarves available on site)
-          </p>
-          <p className="mt-4">
-            Our expert guides will share fascinating stories, help you participate in sacred rituals, and ensure a respectful, memorable experience for all ages.
-          </p>
-        </div>
-        </Card>
-    );
+        const highlights = [
+            "Explore the historic Jallianwala Bagh and learn about its significance in India's freedom struggle",
+            "Visit the awe-inspiring Golden Temple, the spiritual heart of Amritsar",
+            "Discover the stories of India's partition at the renowned Partition Museum",
+            "Experience the patriotic Wagah Border ceremony, witnessing the vibrant flag-lowering ritual",
+            "Enjoy seamless transfers and guidance throughout the day, returning to your hotel by evening"
+        ];
+        return (
+            <Card className="p-6 mb-12 border-t-4 border-lightblue shadow-lg">
+                <h2 className="text-3xl font-bold mb-6">One Day Excursion Overview</h2>
+                <p className="mb-6 text-gray-700">
+                    Embark on a comprehensive one-day excursion through Amritsar’s most iconic sites. Begin your journey at the poignant Jallianwala Bagh, followed by a visit to the majestic Golden Temple. Delve into the moving narratives of the Partition Museum before heading to the Wagah Border for the electrifying evening ceremony. The tour concludes with a comfortable return to your hotel, ensuring a memorable and hassle-free experience.
+                </p>
+                <ul className="list-disc ml-6 space-y-2 text-gray-700">
+                    {highlights.map((point, idx) => <li key={idx}>{point}</li>)}
+                </ul>
+                <div className="mt-6 text-gray-700">
+                    <p>
+                        <strong>Duration:</strong> Full day (approx. 8-10 hours) <br />
+                        <strong>Languages Offered:</strong> English, Hindi, Punjabi <br />
+                        <strong>Best Time to Visit:</strong> Morning start for full experience <br />
+                        <strong>Includes:</strong> Guided visits, transfers, and all entry arrangements
+                    </p>
+                    <p className="mt-4">
+                        This excursion is ideal for travelers seeking to experience Amritsar’s history, spirituality, and patriotic fervor—all in a single, well-organized day.
+                    </p>
+                </div>
+            </Card>
+        );
     };
 
 const TourInclusions = () => {
@@ -253,27 +259,26 @@ const TourInclusions = () => {
                 What's Included
             </h2>
             <ul className="list-disc ml-6 text-gray-700 mb-2">
-                <li>All Fees and Taxes</li>
-                <li>Lunch (Langar experience at Golden Temple)</li>
-                <li>Private transportation</li>
-                <li>Hotel pickup/drop-off</li>
-                <li>Expert English/Hindi/Punjabi-speaking guide</li>
-                <li>Guided tour of Golden Temple complex</li>
-                <li>Participation in Palki Sahib ceremony (if timing permits)</li>
-                <li>Visit to Central Sikh Museum</li>
-                <li>Assistance with head covering and dress code</li>
-                <li>Bottled water</li>
-                <li>Photo opportunities at key locations</li>
+                <li>Expert-guided tour covering Jallianwala Bagh, Partition Museum, Golden Temple, and Wagah Border</li>
+                <li>All transfers in a comfortable, air-conditioned vehicle</li>
+                <li>Assistance with entry arrangements at all major sites</li>
+                <li>Insightful commentary on Amritsar’s history, culture, and significance of each site</li>
+                <li>Guided walk through Heritage Street and local bazaars</li>
+                <li>Opportunities for photo stops at iconic landmarks</li>
+                <li>Tasting of authentic local snacks and refreshments</li>
+                <li>Personalized recommendations for further exploration in Amritsar</li>
             </ul>
             <h3 className="font-semibold text-red-700 mt-6 mb-2 flex items-center gap-2">
                 <X className="w-5 h-5 text-red-500" />
                 Not Included
             </h3>
             <ul className="list-disc ml-6 text-gray-700">
-                <li>Gratuities</li>
-                <li>Personal expenses</li>
-                <li>Souvenirs</li>
-                <li>Additional food or drinks outside of Langar</li>
+                <li>Meals beyond included tastings</li>
+                <li>Gratuities for guide and driver</li>
+                <li>Personal purchases or souvenirs</li>
+                <li>Entry fees to paid attractions (if any, optional)</li>
+                <li>Partition Museum ticket is exclusive</li>
+                <li>Hotel accommodation</li>
             </ul>
         </Card>
     );
@@ -318,37 +323,52 @@ const TourItinerary = () => {
     const [showAll, setShowAll] = useState(false);
     const stops = [
         {
-            title: "Meet at Golden Temple Entrance",
-            duration: "10 min",
-            description: "Meet your guide, get a head covering, and a brief orientation.",
+            title: "Hotel Pickup & Introduction",
+            duration: "15 min",
+            description: "Begin your day with a convenient pickup from your hotel. Meet your expert guide and get a brief overview of Amritsar’s rich history and the day’s itinerary.",
         },
         {
-            title: "Darbar Sahib (Main Sanctum)",
+            title: "Jallianwala Bagh",
             duration: "45 min",
-            description: "Explore the heart of the Golden Temple and learn about its history.",
+            description: "Visit the historic Jallianwala Bagh, the site of the tragic 1919 massacre. Explore the memorial, see the preserved bullet marks, and learn about its significance in India’s freedom movement.",
         },
         {
-            title: "Akal Takht",
-            duration: "20 min",
-            description: "Visit the highest seat of Sikh authority and hear inspiring stories.",
+            title: "Partition Museum",
+            duration: "45 min",
+            description: "Discover the moving stories of India’s partition at the renowned Partition Museum. View exhibits, personal accounts, and artifacts that bring this pivotal chapter of history to life.",
         },
         {
-            title: "Central Sikh Museum",
-            duration: "20 min",
-            description: "Discover Sikh heritage and stories of sacrifice.",
+            title: "Golden Temple (Sri Harmandir Sahib)",
+            duration: "1 hr 15 min",
+            description: "Experience the spiritual heart of Amritsar at the Golden Temple. Marvel at its stunning architecture, participate in the serene atmosphere, and witness the community kitchen (Langar) in action.",
         },
         {
-            title: "Langar Hall (Community Kitchen)",
+            title: "Heritage Street & Local Bazaars",
             duration: "40 min",
-            description: "Experience the world’s largest free kitchen and the spirit of seva.",
+            description: "Stroll along Heritage Street, lined with colonial-era buildings, vibrant shops, and local eateries. Enjoy some time for shopping and tasting authentic Amritsari snacks.",
         },
         {
-            title: "Palki Sahib Ceremony (if timing permits)",
+            title: "Lunch Break (Optional)",
+            duration: "1 hr",
+            description: "Take a break for lunch at a recommended local restaurant or enjoy the Langar at the Golden Temple (meal not included unless specified).",
+        },
+        {
+            title: "Transfer to Wagah Border",
+            duration: "45 min",
+            description: "Travel in a comfortable, air-conditioned vehicle to the Wagah Border, located on the India-Pakistan frontier.",
+        },
+        {
+            title: "Wagah Border Ceremony",
+            duration: "1 hr 30 min",
+            description: "Witness the electrifying Beating Retreat ceremony at the Wagah Border. Experience the patriotic fervor as soldiers from both nations perform the elaborate flag-lowering ritual.",
+        },
+        {
+            title: "Return to Hotel",
             duration: "30 min",
-            description: "Witness the mesmerizing evening or morning procession.",
+            description: "Relax as you are transferred back to your hotel, concluding your memorable full-day excursion in Amritsar.",
         }
     ];
-    const visible = showAll ? stops : stops.slice(0, 3);
+    const visible = showAll ? stops : stops.slice(0, 4);
 
     return (
         <Card className="p-4 sm:p-6 mb-12">
@@ -390,26 +410,26 @@ const TourItinerary = () => {
 };
 
 const videos = [
-  {
-    url: 'https://www.youtube.com/embed/ivTsHLtNM_U',
-    title: 'React JS Crash Course 2024',
-    description: 'Start your React journey with this beginner crash course.',
-  },
-  {
-    url: 'https://www.youtube.com/embed/mVz0V9lqivw',
-    title: 'React Projects for Beginners',
-    description: 'Hands-on React projects to boost your skills.',
-  },
-  {
-    url: 'https://www.youtube.com/embed/_bKE6SGPIs8',
-    title: 'React Hooks Explained Simply',
-    description: 'Learn useState, useEffect and more in this clear guide.',
-  },
-  {
-    url: 'https://www.youtube.com/embed/52nlfLk99gU',
-    title: 'React Interview Questions',
-    description: 'Most asked React interview questions and answers.',
-  },
+    {
+        url: 'https://www.youtube.com/embed/ivTsHLtNM_U',
+        title: 'Golden Temple Amritsar Full Tour & History',
+        description: 'Explore the Golden Temple, its history, and spiritual significance in this detailed walkthrough.',
+    },
+    {
+        url: 'https://www.youtube.com/embed/mVz0V9lqivw',
+        title: 'Langar at Golden Temple: World’s Largest Free Kitchen',
+        description: 'Discover how the Golden Temple serves thousands daily with its incredible community kitchen.',
+    },
+    {
+        url: 'https://www.youtube.com/embed/_bKE6SGPIs8',
+        title: 'Palki Sahib Ceremony at Golden Temple',
+        description: 'Experience the mesmerizing Palki Sahib ceremony, a highlight of the Golden Temple visit.',
+    },
+    {
+        url: 'https://www.youtube.com/embed/52nlfLk99gU',
+        title: 'Golden Temple Visitor Guide: Tips & Etiquette',
+        description: 'Essential tips and etiquette for first-time visitors to the Golden Temple.',
+    },
 ];
 
 const SuggestedVideo = () => {
@@ -460,7 +480,6 @@ const TourDetailsPage = () => {
         <SuggestiveTours />
         <WhyUs />
         <Footer/>
-        <BoottomBar />
     </>
   );
 };

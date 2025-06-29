@@ -6,7 +6,7 @@ const card1 = () => {
   const navigate = useNavigate();
   return (
     <div>
-        <div className="border-[1px] w-[100%] lg:w-[90%] md:w-[90%] p-1 hover:shadow-gray-700 hover:shadow-lg hover:scale-[0.9] transition-all duration-200 ease-in-out font-fredoka rounded-3xl border-lightblue shadow-md overflow-hidden">
+        <div onClick={() => navigate("/GoldenTemple")}   className="border-[1px] w-[100%] lg:w-[90%] md:w-[90%] p-1 hover:shadow-gray-700 hover:shadow-lg hover:scale-[0.9] transition-all duration-200 ease-in-out font-fredoka rounded-3xl border-lightblue shadow-md overflow-hidden">
           <video
             autoPlay
             loop

@@ -1,6 +1,9 @@
 import React from 'react'
+import { useNavigate } from "react-router-dom";
 
 const card3 = () => {
+    const navigate = useNavigate();
+  
   return (
     <div>
              <div className="border-[1px] w-[100%] lg:w-[90%] md:w-[90%] p-1 font-fredoka rounded-3xl border-lightblue shadow-md overflow-hidden hover:shadow-gray-700 hover:shadow-lg hover:scale-[0.9] transition-all duration-200 ease-in-out">
