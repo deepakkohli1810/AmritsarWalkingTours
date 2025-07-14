@@ -18,6 +18,11 @@ import HeritageWalk from './components/Pages/HeritageWalk'
 import VillageTour from './components/Pages/VillageTour'
 import OneDayExcursion from './components/Pages/OneDayExcursion'
 import TwoDayExcursion from './components/Pages/TwoDayExcursion'
+import ThreeDayExcursion from './components/Pages/ThreeDayExcurison'
+import BookNow from './components/Pages/BookNow'
+import OurTours from './components/Pages/OurTours'
+import AllCards from './components/cards/AllCards'
+import AboutUs from './components/AboutUs'
 const App = () => {
   return (
      <>
@@ -31,6 +36,13 @@ const App = () => {
          <Route path="/HeritageWalk" element={<HeritageWalk/>} />
          <Route path="/OneDayExcursion" element={<OneDayExcursion />} />
          <Route path="/TwoDayExcursion" element={<TwoDayExcursion />} />
+         <Route path="/ThreeDayExcursion" element={<ThreeDayExcursion />} />
+         <Route path="/BookNow" element={<BookNow />} />
+         <Route path="/OurTours" element={<OurTours/>} />
+         <Route path="/AllCards" element={<AllCards />} />
+         <Route path="/AboutUs" element={<AboutUs />} />
+
+
     </Routes>
      </>
   )

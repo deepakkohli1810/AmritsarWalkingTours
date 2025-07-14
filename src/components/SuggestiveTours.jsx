@@ -23,6 +23,8 @@ const tours = [
     image: '/assets/photos/photo7.png',
     places: ['Village Tour', 'Shopping in Local Market', 'Partition Museum', 'Border Tour'],
     perks: ['English speaking guide', 'Comfortable AC car'],
+  path: '/ThreeDayExcursion'
+
   },
 ];
 
