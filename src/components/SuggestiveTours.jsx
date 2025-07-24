@@ -30,7 +30,7 @@ const tours = [
 
 const SuggestiveTours = () => {
   return (
-    <div className="min-h-screen w-full px-4 sm:px-8 md:px-16 lg:px-24 py-12 bg-gradient-to-br from-blue-50 via-white to-blue-100">
+    <div className="min-h-screen w-full px-4 sm:px-8 md:px-16 lg:px-24 py-12 bg-gradient-to-br from-blue-50 via-white to-blue-100 ">
       <h1 className="text-3xl sm:text-5xl font-medium text-center text-darkblue mb-12 tracking-tight">
         Suggested Packages
       </h1>
@@ -38,7 +38,7 @@ const SuggestiveTours = () => {
         {tours.map((tour, idx) => (
           <div
             key={tour.title}
-            className="relative group bg-white dark:bg-gray-800 rounded-3xl shadow-xl overflow-hidden transition-transform hover:-translate-y-2 hover:shadow-2xl"
+            className="relative group bg-white  rounded-3xl shadow-xl overflow-hidden transition-transform hover:-translate-y-2 hover:shadow-2xl"
           >
             <div className="h-56 overflow-hidden">
               <img
@@ -72,7 +72,7 @@ const SuggestiveTours = () => {
                 <h3 className="text-lg font-medium text-darkblue mb-1">Other Perks</h3>
                 <ul className="mb-6">
                   {tour.perks.map((perk) => (
-                    <li key={perk} className="flex items-center gap-2 text-gray-700 dark:text-gray-200 text-sm">
+                    <li key={perk} className="flex items-center gap-2 text-gray-700  text-sm">
                       <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>

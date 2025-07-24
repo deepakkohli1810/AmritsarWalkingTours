@@ -8,7 +8,7 @@ import Footer from '../Footer'
 import BottomBar from '../bottomBar'
 const OurTours = () => {
   return (
-    <div className='min-h-screen w-full ' >
+    <div className='min-h-screen w-full bg-white ' >
       <Navbar/>
         <h1 className='px-10 mt-10 text-center text-darkblue text-3xl'>Our Curated Tours </h1> 
         <p className='text-center text-lightblue'>Experience our city with us.</p>

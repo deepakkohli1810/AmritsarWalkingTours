@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../Navbar";
 import BottomBar from "../bottomBar";
+import WhyUs from "../WhyUs";
 import { FaCheckCircle, FaTimes, FaInfoCircle } from "react-icons/fa";
 
 const tourDetails = {
@@ -182,124 +183,126 @@ const BookNow = () => {
       <Navbar />
       <BottomBar />
       <div className="min-h-screen w-full px-4 sm:px-8 py-6  via-white to-blue-300">
-        <h1 className="text-3xl font-bold text-darkblue mb-6">
+        <h1 className="text-3xl mt-4 font-semibold text-darkblue text-center mb-6">
           Book Your Amritsar Adventure
         </h1>
 
         {/* Packages Section */}
-        <section className="mb-10">
-          <h2 className="text-xl font-semibold mb-3 text-blue-700">
-            Choose a Package
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {packageTours.map((pkg) => (
-              <div
-                key={pkg.key}
-                className={`rounded-xl shadow-lg border-2 p-5 flex flex-col transition-all ${
-                  selectedPackage === pkg.key
-                    ? "border-blue-600 bg-blue-50"
-                    : "border-transparent bg-white"
-                }`}
-              >
-                <div className="flex items-center justify-between mb-2">
-                  <span className="font-bold text-lg text-darkblue">
-                    {pkg.title}
-                  </span>
-                  {selectedPackage === pkg.key && (
-                    <span className="bg-blue-600 text-white px-2 py-1 rounded text-xs">
-                      Selected
-                    </span>
-                  )}
-                </div>
-                <div className="text-gray-700 mb-2">{pkg.description}</div>
-                <div className="font-semibold text-blue-700 mb-2">
-                  {pkg.price} <span className="text-xs">/person</span>
-                </div>
-                <div className="flex flex-wrap gap-2 mb-3">
-                  {pkg.tours.map((tourKey) =>
-                    tourDetails[tourKey] ? (
-                      <span
-                        key={tourKey}
-                        className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs"
-                      >
-                        {tourDetails[tourKey].title}
-                      </span>
-                    ) : (
-                      <span
-                        key={tourKey}
-                        className="bg-gray-100 text-gray-600 px-2 py-1 rounded text-xs italic"
-                      >
-                        {tourKey
-                          .replace(/([A-Z])/g, " $1")
-                          .replace(/^./, (str) => str.toUpperCase())}
-                      </span>
-                    )
-                  )}
-                </div>
-                {/* Number of Persons input inside package container */}
-                {selectedPackage === pkg.key && (
-                  <div className="flex items-center gap-4 mb-4">
-                    <label className="font-semibold text-blue-900">
-                      Number of Persons:
-                    </label>
-                    <div className="flex items-center gap-2">
-                      <button
-                        type="button"
-                        onClick={() =>
-                          setNumPersons((prev) => Math.max(1, prev - 1))
-                        }
-                        className="px-2 py-1 bg-blue-200 text-blue-900 rounded"
-                      >
-                        −
-                      </button>
-                      <input
-                        type="number"
-                        min={1}
-                        value={numPersons}
-                        onChange={(e) =>
-                          setNumPersons(
-                            Math.max(1, parseInt(e.target.value) || 1)
-                          )
-                        }
-                        className="w-16 text-center px-2 py-1 border rounded text-blue-900"
-                      />
-                      <button
-                        type="button"
-                        onClick={() => setNumPersons((prev) => prev + 1)}
-                        className="px-2 py-1 bg-blue-200 text-blue-900 rounded"
-                      >
-                        +
-                      </button>
-                    </div>
-                  </div>
-                )}
+         
+    <section className="mb-10 px-4">
+      <h2 className="text-xl font-normal mb-3 text-darkblue">Choose a Package</h2>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {packageTours.map((pkg) => (
+          <div
+            key={pkg.key}
+            className={`rounded-xl shadow-lg border-2 p-5 flex flex-col transition-all ${
+              selectedPackage === pkg.key
+                ? "border-darkblue bg-blue-50"
+                : "border-transparent bg-white"
+            }`}
+          >
+            {/* Title + Badge */}
+            <div className="flex items-center justify-between mb-2">
+              <span className="font-bold text-lg text-darkblue">{pkg.title}</span>
+              {selectedPackage === pkg.key && (
+                <span className="bg-darkblue text-white px-2 py-1 rounded text-xs">
+                  Selected
+                </span>
+              )}
+            </div>
 
-                {selectedPackage === pkg.key ? (
-                  <button
-                    className="mt-auto px-4 py-2 rounded-lg font-semibold bg-red-100 text-red-700 hover:bg-red-200 transition flex items-center gap-2"
-                    onClick={handleRemovePackage}
+            {/* Description + Price */}
+            <div className="text-gray-700 mb-2">{pkg.description}</div>
+            <div className="font-semibold text-lightblue mb-2">
+              {pkg.price} <span className="text-xs">/person</span>
+            </div>
+
+            {/* Tours in this Package */}
+            <div className="flex flex-wrap gap-2 mb-3">
+              {pkg.tours.map((tourKey) =>
+                tourDetails[tourKey] ? (
+                  <span
+                    key={tourKey}
+                    className="bg-blue-100 text-darkblue px-2 py-1 rounded text-xs"
                   >
-                    <FaTimes /> Remove Package
-                  </button>
+                    {tourDetails[tourKey].title}
+                  </span>
                 ) : (
-                  <button
-                    className="mt-auto px-4 py-2 rounded-lg font-semibold bg-blue-700 text-white hover:bg-blue-800 transition"
-                    onClick={() => handlePackageSelect(pkg.key)}
+                  <span
+                    key={tourKey}
+                    className="bg-gray-100 text-gray-600 px-2 py-1 rounded text-xs italic"
                   >
-                    Select Package
+                    {tourKey
+                      .replace(/([A-Z])/g, " $1")
+                      .replace(/^./, (str) => str.toUpperCase())}
+                  </span>
+                )
+              )}
+            </div>
+
+            {/* Number of Persons input if selected */}
+            {selectedPackage === pkg.key && (
+              <div className="flex items-center gap-4 mb-4">
+                <label className="font-semibold text-darkblue">
+                  Number of Persons:
+                </label>
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setNumPersons((prev) => Math.max(1, prev - 1))
+                    }
+                    className="px-2 py-1 bg-blue-200 text-darkblue rounded"
+                  >
+                    −
                   </button>
-                )}
+                  <input
+                    type="number"
+                    min={1}
+                    value={numPersons}
+                    onChange={(e) =>
+                      setNumPersons(Math.max(1, parseInt(e.target.value) || 1))
+                    }
+                    className="w-16 text-center px-2 py-1 border rounded text-darkblue"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setNumPersons((prev) => prev + 1)}
+                    className="px-2 py-1 bg-blue-200 text-darkblue rounded"
+                  >
+                    +
+                  </button>
+                </div>
               </div>
-            ))}
+            )}
+
+            {/* Select or Remove Button */}
+            {selectedPackage === pkg.key ? (
+              <button
+                className="mt-auto px-4 py-2 rounded-lg font-semibold bg-red-100 text-red-700 hover:bg-red-200 transition flex items-center gap-2"
+                onClick={handleRemovePackage}
+              >
+                <FaTimes /> Remove Package
+              </button>
+            ) : (
+              <button
+                className="mt-auto px-4 py-2 rounded-lg font-semibold bg-darkblue text-white hover:bg-darkblue/90 transition"
+                onClick={() => handlePackageSelect(pkg.key)}
+              >
+                Select Package
+              </button>
+            )}
           </div>
-        </section>
+        ))}
+      </div>
+    </section>
 
         {/* Divider */}
         <div className="my-8 border-t border-blue-200"></div>
 
         {/* Individual Tours Section */}
         <section>
-          <h2 className="text-xl font-semibold mb-3 text-darkblue">
+          <h2 className="text-xl ml-4 font-normal mb-3 text-darkblue">
             Or Build Your Own Tour
           </h2>
           <div className="grid  grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -310,7 +313,7 @@ const BookNow = () => {
                   key={key}
                   className={`rounded-xl shadow-lg border-2 p-5 flex flex-col transition-all group relative overflow-hidden cursor-pointer ${
                     isSelected
-                      ? "border-blue-600 bg-gradient-to-br from-blue-50 to-blue-100"
+                      ? "border-darkblue bg-gradient-to-br from-blue-50 to-blue-100"
                       : "border-transparent bg-white px-10"
                   }`}
                   style={{
@@ -323,7 +326,7 @@ const BookNow = () => {
                 >
                   {/* Decorative Ribbon for Selected */}
                   {isSelected && (
-                    <div className="absolute top-0 right-0 bg-blue-600 text-white px-3 py-1 rounded-bl-xl font-bold text-xs shadow">
+                    <div className="absolute top-0 right-0 bg-darkblue text-white px-3 py-1 rounded-bl-xl font-bold text-xs shadow">
                       Selected
                     </div>
                   )}
@@ -332,7 +335,7 @@ const BookNow = () => {
                       {details.title}
                     </span>
                     <button
-                    //   className="text-blue-600 hover:text-blue-900"
+                    //   className="text-blue-600 hover:text-darkblue"
                       onClick={(e) => {
                         e.stopPropagation();
                         openTourModal(key);
@@ -340,7 +343,7 @@ const BookNow = () => {
                       aria-label={`View details of ${details.title}`} 
                       className="w-9 h-9 flex items-center justify-center rounded-full bg-blue-100 hover:bg-blue-200 transition"
                     >
-                      <FaInfoCircle className="text-blue-700 text-xl" />
+                      <FaInfoCircle className="text-darkblue text-xl" />
                     </button>
                   </div>
                   <div className="w-full flex justify-center mb-3">
@@ -353,24 +356,24 @@ const BookNow = () => {
                       }}
                     />
                   </div>
-                  <div className="font-semibold text-darkblue mb-2 text-xl flex items-center gap-2">
+                  <div className="font-semibold text-darkblue mb-2 text-xl flex items-center gap-0">
                     <span>{details.price}</span>
-                    <span className="text-sm bg-blue-100 text-blue-700 px-2 py-0.5 rounded">
+                    <span className="text-xs text-lightblue px-2 py-0.5 rounded">
                       /person
                     </span>
                   </div>
                   <div className="mb-2 text-base text-gray-700">
-                    <span className="font-bold text-blue-900">Includes:</span>{" "}
+                    <span className="font-bold text-darkblue">Includes:</span>{" "}
                     {details.includes}
                   </div>
                   <div className="mb-2 text-base text-gray-700">
-                    <span className="font-bold text-blue-900">Guide:</span>{" "}
+                    <span className="font-bold text-darkblue">Guide:</span>{" "}
                     {details.guide}
                   </div>
                   {/* Number of Persons input for individual tour */}
                   {isSelected && (
                     <div className="flex items-center  gap-4 mb-2">
-                      <label className="font-semibold text-blue-900">
+                      <label className="font-semibold text-darkblue">
                         Number of Persons:
                       </label>
                       <div className="flex items-center gap-2">
@@ -380,7 +383,7 @@ const BookNow = () => {
                             e.stopPropagation();
                             setNumPersons((prev) => Math.max(1, prev - 1));
                           }}
-                          className="px-2 py-1 bg-blue-200 text-blue-900 rounded"
+                          className="px-2 py-1 bg-blue-200 text-darkblue rounded"
                         >
                           −
                         </button>
@@ -392,7 +395,7 @@ const BookNow = () => {
                             e.stopPropagation();
                             setNumPersons(Math.max(1, parseInt(e.target.value) || 1));
                           }}
-                          className="w-16 text-center px-2 py-1 border rounded text-blue-900"
+                          className="w-16 text-center px-2 py-1 border rounded text-darkblue"
                         />
                         <button
                           type="button"
@@ -400,7 +403,7 @@ const BookNow = () => {
                             e.stopPropagation();
                             setNumPersons((prev) => prev + 1);
                           }}
-                          className="px-2 py-1 bg-blue-200 text-blue-900 rounded"
+                          className="px-2 py-1 bg-blue-200 text-darkblue rounded"
                         >
                           +
                         </button>
@@ -415,13 +418,13 @@ const BookNow = () => {
                         e.stopPropagation();
                         handleTourSelect(key);
                       }}
-                      className="accent-blue-700  w-5 h-5"
+                      className="accent-darkblue  w-5 h-5"
                       aria-label={`Add to cart ${details.title}`}
                     />
                     <span
                       className={`text-sm font-light ${
                         isSelected
-                          ? "text-blue-700 font-semibold"
+                          ? "text-darkblue font-semibold"
                           : "text-gray-500"
                       }`}
                     >
@@ -445,11 +448,13 @@ const BookNow = () => {
           </div>
         </section>
         {showSummary && (
-          <div className="fixed bottom-0 left-0 w-full bg-white border-t  border-blue-200 shadow-lg z-50">
+          <div className="fixed 
+           bottom-0 left-0 w-full bg-white border-t  border-blue-200 shadow-lg z-50">
             <div className="max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-between px-6 py-4">
-              <div className="flex flex-col sm:flex-row items-center gap-3">
-                <FaCheckCircle className="text-green-500 text-xl" />
-                <span className="font-semibold text-blue-900">
+
+              <div className="flex flex-row mt-4 mb-5 sm:flex-col items-center gap-3">
+
+                <span className="font-semibold text-darkblue">
                   {selectedPackage
                     ? `Package Selected: ${
                         packageTours.find((p) => p.key === selectedPackage)
@@ -457,7 +462,7 @@ const BookNow = () => {
                       }`
                     : `Tours Selected: ${selectedTourList.length}`}
                 </span>
-                <span className="font-bold text-blue-700 ml-2">
+                <span className="font-bold text-darkblue ml-2">
                   Total: {getTotalPrice()}
                 </span>
                 <span className="ml-2 text-gray-700">
@@ -465,10 +470,10 @@ const BookNow = () => {
                 </span>
               </div>
               <button
-                className="mt-3 sm:mt-0 px-5 py-2 rounded-lg font-semibold bg-darkblue text-white hover:bg-blue-900 transition"
+                className="mt-3 sm:mt-0 px-5 py-2 rounded-lg font-semibold bg-darkblue text-white hover:bg-darkblue transition"
                 onClick={() => setShowVehicleModal(true)}
               >
-                Book Now
+                Continue.
               </button>
             </div>
           </div>
@@ -485,84 +490,115 @@ const BookNow = () => {
               >
                 <FaTimes />
               </button>
-              <h3 className="text-xl font-bold text-blue-900 mb-4">
+              <h3 className="text-xl font-bold text-darkblue mb-4">
                 Choose Your Vehicle
               </h3>
               <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  setShowVehicleModal(false);
-                  alert(
-                    `Vehicle selected: ${selectedVehicle}\nPersons: ${numPersons}`
-                  );
-                }}
-              >
-                <div className="flex flex-col gap-4 mb-4">
-                  {[
+  onSubmit={(e) => {
+    e.preventDefault();
+    setShowVehicleModal(false);
+
+    let bookingData = {};
+
+    if (selectedPackage) {
+      const pkg = packageTours.find((p) => p.key === selectedPackage);
+      bookingData = {
+        selectedPackage: {
+          key: pkg.key,
+          title: pkg.title,
+          description: pkg.description,
+          price: pkg.price,
+          tours: pkg.tours.map((tourKey) => ({
+            key: tourKey,
+            ...tourDetails[tourKey],
+          })),
+        },
+      };
+    } else {
+      bookingData = {
+        selectedTours: selectedTourList.map((tourKey) => ({
+          key: tourKey,
+          ...tourDetails[tourKey],
+        })),
+      };
+    }
+
+    bookingData.selectedVehicle = selectedVehicle;
+    bookingData.numPersons = numPersons;
+    bookingData.totalPrice = getTotalPrice();
+
+    localStorage.setItem("bookingDetails", JSON.stringify(bookingData));
+
+    window.location.href = "/register";
+  }}
+>
+
+                  <div className="flex flex-col gap-4 mb-4">
+                    {[
                     "Sedan",
                     "SUV",
                     "Innova",
                     "Tempo Traveller",
                     "No Vehicle Needed",
-                  ].map((vehicle) => (
+                    ].map((vehicle) => (
                     <label
                       key={vehicle}
                       className="flex items-center gap-2 cursor-pointer"
                     >
                       <input
-                        type="radio"
-                        name="vehicle"
-                        value={vehicle}
-                        checked={selectedVehicle === vehicle}
-                        onChange={() => setSelectedVehicle(vehicle)}
-                        className="accent-blue-700 w-5 h-5"
+                      type="radio"
+                      name="vehicle"
+                      value={vehicle}
+                      checked={selectedVehicle === vehicle}
+                      onChange={() => setSelectedVehicle(vehicle)}
+                      className="accent-darkblue w-5 h-5"
                       />
-                      <span className="text-blue-900">{vehicle}</span>
+                      <span className="text-darkblue">{vehicle}</span>
                     </label>
-                  ))}
+                    ))}
+                  </div>
+                  <button
+                    type="submit"
+                    className="w-full px-4 py-2 rounded-lg font-semibold bg-darkblue text-white hover:bg-darkblue/90 transition"
+                  >
+                    Confirm Vehicle
+                  </button>
+                  </form>
                 </div>
-                <button
-                  type="submit"
-                  className="w-full px-4 py-2 rounded-lg font-semibold bg-blue-700 text-white hover:bg-blue-800 transition"
-                >
-                  Confirm Vehicle
-                </button>
-              </form>
-            </div>
-          </div>
-        )}
-        {showTourModal && (
-          <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
-            <div className="bg-white rounded-xl shadow-lg p-6 max-w-md w-full relative">
-              <button
-                className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
-                onClick={closeTourModal}
-                aria-label="Close"
-              >
-                <FaTimes />
-              </button>
-              <h3 className="text-xl font-bold text-blue-900 mb-2">
-                {tourDetails[showTourModal].title}
-              </h3>
-              <img
-                src={tourDetails[showTourModal].img}
-                alt={tourDetails[showTourModal].title}
-                className="object-cover rounded-lg shadow mb-3 w-full h-40"
-              />
-              <div className="font-semibold text-blue-700 mb-2">
-                {tourDetails[showTourModal].price} /person
-              </div>
-              <div className="mb-2">
-                <span className="font-bold">Includes:</span>{" "}
-                {tourDetails[showTourModal].includes}
-              </div>
-              <div className="mb-2">
-                <span className="font-bold">Guide:</span>{" "}
-                {tourDetails[showTourModal].guide}
-              </div>
-              <button
-                className="mt-2 px-4 py-2 rounded-lg font-semibold bg-blue-700 text-white hover:bg-blue-800 transition"
-                onClick={() => {
+                </div>
+              )}
+              {showTourModal && (
+                <div className="fixed px-3 inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
+                <div className="bg-white rounded-xl shadow-lg p-6 max-w-md w-full relative">
+                  <button
+                  className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
+                  onClick={closeTourModal}
+                  aria-label="Close"
+                  >
+                  <FaTimes />
+                  </button>
+                  <h3 className="text-xl font-bold text-darkblue mb-2">
+                  {tourDetails[showTourModal].title}
+                  </h3>
+                  <img
+                  src={tourDetails[showTourModal].img}
+                  alt={tourDetails[showTourModal].title}
+                  className="object-cover rounded-lg shadow mb-3 w-full h-40"
+                  />
+                  <div className="font-semibold text-blue-700 mb-2">
+                  {tourDetails[showTourModal].price} /person
+                  </div>
+                  <div className="mb-2">
+                  <span className="font-bold">Includes:</span>{" "}
+                  {tourDetails[showTourModal].includes}
+                  </div>
+                  <div className="mb-2">
+                  <span className="font-bold">Guide:</span>{" "}
+                  {tourDetails[showTourModal].guide}
+                  </div>
+                  <button
+                  className="mt-2 px-4 py-2 rounded-lg font-semibold bg-blue-700 text-white hover:bg-blue-800 transition"
+                  onClick={() => {
                   handleTourSelect(showTourModal);
                   closeTourModal();
                 }}
@@ -575,6 +611,7 @@ const BookNow = () => {
           </div>
         )}
       </div>
+      <WhyUs />
     </>
   );
 };

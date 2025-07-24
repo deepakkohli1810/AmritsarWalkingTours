@@ -2,7 +2,7 @@ import React from 'react';
 
 const Page2 = () => {
   return (
-    <div className="min-h-screen w-full py-8 px-4 sm:px-8 md:px-12 lg:px-24 dark:bg-gray-900 dark:text-white">
+    <div className="min-h-screen w-full py-8 px-4 sm:px-8 md:px-12 lg:px-24 bg-white">
       <h1 className="text-center text-4xl sm:text-5xl lg:text-7xl mt-5 font-medium font-fredoka tracking-tight text-yellow-500">
         The Amritsar Story<span className="text-darkblue">.</span>
       </h1>

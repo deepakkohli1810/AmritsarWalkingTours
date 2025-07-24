@@ -23,6 +23,7 @@ import BookNow from './components/Pages/BookNow'
 import OurTours from './components/Pages/OurTours'
 import AllCards from './components/cards/AllCards'
 import AboutUs from './components/AboutUs'
+import Register from './components/Register'
 const App = () => {
   return (
      <>
@@ -41,6 +42,7 @@ const App = () => {
          <Route path="/OurTours" element={<OurTours/>} />
          <Route path="/AllCards" element={<AllCards />} />
          <Route path="/AboutUs" element={<AboutUs />} />
+         <Route path="/register" element={<Register />} />
 
 
     </Routes>

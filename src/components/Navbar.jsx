@@ -19,7 +19,7 @@ export default function Navbar() {
       initial={{ y: -60, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="bg-[#332D56] text-white dark:bg-gray-900 dark:text-white rounded-[4rem] shadow-lg mx-4 mt-4 px-6 py-2 flex items-center justify-between sticky top-0 z-50"
+      className="bg-[#332D56] text-white  rounded-[4rem] shadow-lg mx-4 mt-4 px-6 py-2 flex items-center justify-between sticky top-0 z-50"
     >
       {/* Logo */}
       <div className="text-2xl lg:text-3xl font-fredoka font-bold text-white">
@@ -60,7 +60,7 @@ export default function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 100 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className="absolute top-20 left-4 right-4 bg-[#332D56] dark:bg-gray-800 rounded-xl shadow-md px-4 py-4 flex flex-col gap-2 z-50 md:hidden"
+            className="absolute top-20 left-4 right-4 bg-[#332D56]  rounded-xl shadow-md px-4 py-4 flex flex-col gap-2 z-50 md:hidden"
           >
             <p className="text-white mb-4">We organise trips for you in Amritsar.</p>
 

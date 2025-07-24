@@ -8,7 +8,7 @@ import { Car } from 'lucide-react';
 import AllCards from './cards/AllCards';
 const Page3 = () => {
   return (
-    <div className="min-h-screen w-full px-4 py-10 bg-white dark:bg-gray-900 dark:text-white">
+    <div className="min-h-screen w-full px-4 py-10 bg-white ">
       {/* Heading */}
       <div className="max-w-7xl mx-auto">
         <h1 className="text-2xl ml-4 sm:text-4xl md:text-4xl font-normal tracking-tighter text-darkblue">
