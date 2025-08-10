@@ -188,7 +188,7 @@ const PriceLockTimer = ({
   const mins = Math.floor(timeLeft / 60);
   const secs = timeLeft % 60;
   return (
-    <span className="font-medium text-green-600">
+    <span className="font-medium text-black">
       {mins}:{secs.toString().padStart(2, "0")} left
     </span>
   );
@@ -608,9 +608,12 @@ const BookNow = () => {
                 AWT
               </div>
               <div className="flex flex-col items-center mx-auto max-w-xl">
-                <span className="inline-block bg-[#fdecea] text-red-700 font-bold px-5 py-1.5 rounded-full text-xs sm:text-xs mb-2 lg:text-xs tracking-wide shadow-sm border border-red-200">
+                <span className="flex text-center flex-col  bg-[#fdecea] text-red-700 font-bold px-5 py-1.5 rounded-full text-xs sm:text-xs mb-2   lg:text-xs tracking-wide shadow-sm border border-red-200">
                   LIMITED TIME ONLY
-                  <PriceLockTimer />
+                  <div className="flex items-center gap-2 text-black">
+                    Lock Your Price Now!
+                    <PriceLockTimer />
+                  </div>
                 </span>
                 <span className="text-lg lg:text-sm font-fredoka text-[#332D56] text-center leading-snug">
                   Unlock Exclusive Savings on Your{" "}
@@ -852,7 +855,7 @@ const BookNow = () => {
         )}
       </div>
       <WhyUs />
-      <Footer/>
+      <Footer />
     </>
   );
 };

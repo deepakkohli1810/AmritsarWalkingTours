@@ -9,7 +9,7 @@ export default function Navbar() {
   const navItems = [
     { label: 'HOME', path: '/' },
     { label: 'OUR TOURS', path: '/OurTours' },
-    { label: 'GALLERY', path: '/' },
+    { label: 'GALLERY', path: '/Gallery' },
     { label: 'ABOUT US', path: '/AboutUs' },
     { label: 'CONTACT US', path: '/contact' },
   ];

@@ -24,30 +24,52 @@ import OurTours from './components/Pages/OurTours'
 import AllCards from './components/cards/AllCards'
 import AboutUs from './components/AboutUs'
 import Register from './components/Register'
+import Contact from './components/Pages/ContactUs'
 const App = () => {
   return (
-     <>
-     <ScrollToTop />
-        <Routes>
-       <Route path="/" element={<Home/>} />
-       <Route path="/GoldenTemple" element={<GoldenTemple/>} />
-       <Route path="/BorderTour" element={<BorderTour/>} />
-       <Route path="/FoodTour" element={<FoodTour/>} />
-       <Route path="/VillageTour" element={<VillageTour/>} />
-         <Route path="/HeritageWalk" element={<HeritageWalk/>} />
-         <Route path="/OneDayExcursion" element={<OneDayExcursion />} />
-         <Route path="/TwoDayExcursion" element={<TwoDayExcursion />} />
-         <Route path="/ThreeDayExcursion" element={<ThreeDayExcursion />} />
-         <Route path="/BookNow" element={<BookNow />} />
-         <Route path="/OurTours" element={<OurTours/>} />
-         <Route path="/AllCards" element={<AllCards />} />
-         <Route path="/AboutUs" element={<AboutUs />} />
-         <Route path="/register" element={<Register />} />
+    <>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route
+          path="/GoldenTemple"
+          element={<GoldenTemple />}
+        />
+        <Route
+          path="/BorderTour"
+          element={<BorderTour />}
+        />
+        <Route path="/FoodTour" element={<FoodTour />} />
+        <Route
+          path="/VillageTour"
+          element={<VillageTour />}
+        />
+        <Route
+          path="/HeritageWalk"
+          element={<HeritageWalk />}
+        />
+        <Route
+          path="/OneDayExcursion"
+          element={<OneDayExcursion />}
+        />
+        <Route
+          path="/TwoDayExcursion"
+          element={<TwoDayExcursion />}
+        />
+        <Route
+          path="/ThreeDayExcursion"
+          element={<ThreeDayExcursion />}
+        />
+        <Route path="/BookNow" element={<BookNow />} />
+        <Route path="/OurTours" element={<OurTours />} />
+        <Route path="/AllCards" element={<AllCards />} />
+        <Route path="/AboutUs" element={<AboutUs />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/Contact" element={<Contact />} />
 
-
-    </Routes>
-     </>
-  )
+      </Routes>
+    </>
+  );
 }
 
 export default App

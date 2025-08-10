@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import Navbar from "./Navbar";
-import BottomBar from "./bottomBar";
-import Footer from "./Footer";
+import BottomBar from "../bottomBar";
+import Footer from "../Footer";
 import {
   FaEnvelope,
   FaWhatsapp,
@@ -12,6 +11,7 @@ import {
   FaPhone,
   FaCheck,
 } from "react-icons/fa";
+import Navbar from "../Navbar";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -67,7 +67,7 @@ const Contact = () => {
             Accept: "application/json",
           },
           body: JSON.stringify({
-            access_key: "YOUR_WEB3FORMS_ACCESS_KEY", // Replace with your actual access key
+            access_key: "6d5d96fb-01c7-41be-bb8f-a370ec4ad4fc", // Replace with your actual access key
             name: formData.name,
             email: formData.email,
             phone: formData.phone,
@@ -100,7 +100,7 @@ const Contact = () => {
   if (isSubmitted) {
     return (
       <>
-        <Navbar />
+        <Navbar/>
         <div className="min-h-screen bg-gradient-to-b from-white to-indigo-50 flex items-center justify-center px-4 py-12">
           <div className="bg-white rounded-3xl shadow-xl p-8 max-w-md w-full border border-gray-100 text-center">
             <div className="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-green-100 mb-5">
@@ -121,7 +121,7 @@ const Contact = () => {
             </button>
           </div>
         </div>
-        <BottomBar />
+       <BottomBar />
         <Footer />
       </>
     );
