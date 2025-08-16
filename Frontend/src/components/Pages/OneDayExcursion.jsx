@@ -79,10 +79,13 @@ const TourDetailsPage = () => {
     useState(false);
 
   const images = [
-    "/assets/WagahBorder/photo28.png",
-    "/assets/WagahBorder/photo24.png",
-    "/assets/WagahBorder/photo25.png",
+    "/assets/GoldenTemple/photo17.png",
+    "/assets/GoldenTemple/photo13.png",
+    "/assets/GoldenTemple/photo14.png",
+    "/assets/GoldenTemple/photo15.png",
+    "/assets/GoldenTemple/photo16.png",
     "/assets/WagahBorder/photo26.png",
+    "/assets/WagahBorder/photo25.png",
     "/assets/WagahBorder/photo27.png",
     "/assets/WagahBorder/photo29.png",
     "/assets/WagahBorder/photo30.png",
@@ -95,8 +98,7 @@ const TourDetailsPage = () => {
     "/assets/WagahBorder/photo37.png",
     "/assets/WagahBorder/photo38.png",
     "/assets/WagahBorder/photo39.png",
-    "/assets/WagahBorder/photo40.png",
-    "/assets/WagahBorder/photo41.png",
+   
   ];
 
   // Keyboard navigation for preview modal

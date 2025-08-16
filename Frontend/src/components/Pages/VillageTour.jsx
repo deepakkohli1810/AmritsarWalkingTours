@@ -1243,7 +1243,7 @@ const TourDetailsPage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 className="bg-white hidden md:block rounded-2xl shadow-xl border border-gray-100 overflow-hidden"
               >
-                <div className="  p-5 ">
+                <div className="bg-gradient-to-r from-[#332D56] to-[#4E6688]  p-5 ">
                   <div className="flex justify-between items-start">
                     <div>
                       <p className="text-amber-100 text-sm">
@@ -1524,19 +1524,17 @@ const TourDetailsPage = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <button
-                  onClick={() => {
-                   
-                  }}
+                  onClick={() => {}}
                   className="px-6 py-3 bg-white text-darkblue font-semibold rounded-xl shadow-md hover:bg-gray-100 transition text-center"
                 >
                   Book Your Village Adventure
                 </button>
                 <Link
-                                 to="/contact"
-                                 className="px-6 py-3 bg-transparent border-2 border-white text-white font-semibold rounded-xl hover:bg-white/10 transition text-center"
-                               >
-                                 Have Questions? Contact Us
-                               </Link>
+                  to="/contact"
+                  className="px-6 py-3 bg-transparent border-2 border-white text-white font-semibold rounded-xl hover:bg-white/10 transition text-center"
+                >
+                  Have Questions? Contact Us
+                </Link>
               </div>
             </div>
             <div className="hidden lg:block relative">

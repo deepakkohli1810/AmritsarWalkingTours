@@ -4,7 +4,7 @@ import { Home, Binoculars, Contact, Image } from "lucide-react";
 
 const BottomBar = () => {
   return (
-    <div className="fixed bottom-4 left-1/2 -translate-x-1/2 w-[95vw] max-w-md bg-white/60 backdrop-blur-md rounded-2xl shadow-lg flex justify-between items-center px-4 py-2 sm:hidden z-50 border border-gray-200">
+    <div className="fixed bottom-2 left-1/2 -translate-x-1/2 w-[90%] max-w-md bg-white/60 backdrop-blur-md rounded-2xl shadow-lg flex justify-between items-center px-2 py-2 sm:hidden z-50 border border-gray-200">
       <Link to="/" className="flex flex-col items-center text-darkbluex hover:text-lightblue transition">
         <Home size={19} strokeWidth={1} />
         <span className="text-xs mt-1">Home</span>

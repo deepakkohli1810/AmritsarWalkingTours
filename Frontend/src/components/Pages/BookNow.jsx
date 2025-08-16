@@ -109,7 +109,7 @@ const vehicles = [
 const tourDetails = {
   goldenTemple: {
     title: "Golden Temple Tour",
-    img: "/public/assets/GoldenTemple/photo18.png",
+    img: " /assets/GoldenTemple/photo17.png",
     price: "₹1500",
     includes: "Guided tour, Entry tickets, Refreshments",
     guide:
@@ -117,7 +117,7 @@ const tourDetails = {
   },
   jallianwalaBagh: {
     title: "Jallianwala Bagh Tour",
-    img: "/public/assets/photos/photo10b.jpeg",
+    img: "/assets/GoldenTemple/photo14.png",
     price: "₹800",
     includes: "Entry tickets, Guided history walk",
     guide:
@@ -133,7 +133,7 @@ const tourDetails = {
   },
   foodTour: {
     title: "Food Walking Tour",
-    img: "/public/assets/photos/photo8.png",
+    img: "/assets/FoodWalk/photo (62).png",
     price: "₹1000",
     includes:
       "Street food tasting, Local guide, Water bottle",
@@ -307,50 +307,57 @@ const BookNow = () => {
         </h1>
 
         {/* Packages Section */}
-        <section className="mb-10 px-1 sm:px-10">
-          <h2 className="text-lg sm:text-lg md:text-xl lg:text-xl mb-3 text-center text-darkblue">
-            Choose a package curated for you.
+        <section className="mb-16 px-4 sm:px-10">
+          <h2 className="text-xl sm:text-xl md:text-2xl lg:text-2xl font-bold mb-6 text-center text-darkblue">
+            Choose a Package Curated for You
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {packageTours.map((pkg) => (
               <div
                 key={pkg.key}
-                className={`rounded-xl shadow-lg border-2 p-5 flex flex-col transition-all ${
+                className={`relative rounded-2xl shadow-md border-2 p-6 flex flex-col transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg ${
                   selectedPackage === pkg.key
                     ? "border-darkblue bg-blue-50"
-                    : "border-transparent bg-white"
+                    : "border-gray-200 bg-white"
                 }`}
               >
-                <div className="flex items-center justify-between mb-2">
-                  <span className="font-bold text-lg text-darkblue">
-                    {pkg.title}
+                {/* Selected Badge */}
+                {selectedPackage === pkg.key && (
+                  <span className="absolute top-4 right-4 bg-darkblue text-white px-3 py-1 rounded-full text-xs font-semibold">
+                    Selected
                   </span>
-                  {selectedPackage === pkg.key && (
-                    <span className="bg-darkblue text-white px-2 py-1 rounded text-xs">
-                      Selected
-                    </span>
-                  )}
+                )}
+
+                <div className="mb-3">
+                  <h3 className="font-bold text-lg text-darkblue">
+                    {pkg.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm mt-1">
+                    {pkg.description}
+                  </p>
                 </div>
-                <div className="text-gray-700 mb-2">
-                  {pkg.description}
-                </div>
-                <div className="font-semibold text-lightblue mb-2">
+
+                <div className="font-bold text-lg text-lightblue mb-3">
                   {pkg.price}{" "}
-                  <span className="text-xs">/person</span>
+                  <span className="text-xs text-gray-500">
+                    / person
+                  </span>
                 </div>
-                <div className="flex flex-wrap gap-2 mb-3">
+
+                {/* Tour Tags */}
+                <div className="flex flex-wrap gap-2 mb-4">
                   {pkg.tours.map((tourKey) =>
                     tourDetails[tourKey] ? (
                       <span
                         key={tourKey}
-                        className="bg-blue-100 text-darkblue px-2 py-1 rounded text-xs"
+                        className="bg-blue-100 text-darkblue px-3 py-1 rounded-full text-xs font-medium"
                       >
                         {tourDetails[tourKey].title}
                       </span>
                     ) : (
                       <span
                         key={tourKey}
-                        className="bg-gray-100 text-gray-600 px-2 py-1 rounded text-xs italic"
+                        className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs italic"
                       >
                         {tourKey
                           .replace(/([A-Z])/g, " $1")
@@ -361,12 +368,14 @@ const BookNow = () => {
                     )
                   )}
                 </div>
+
+                {/* Person Selector - Only visible when selected */}
                 {selectedPackage === pkg.key && (
-                  <div className="flex items-center gap-4 mb-4">
-                    <label className="font-semibold text-darkblue">
+                  <div className="mb-5">
+                    <label className="block font-semibold text-darkblue text-sm mb-2">
                       Number of Persons:
                     </label>
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-3">
                       <button
                         type="button"
                         onClick={() =>
@@ -374,7 +383,7 @@ const BookNow = () => {
                             Math.max(1, prev - 1)
                           )
                         }
-                        className="px-2 py-1 bg-blue-200 text-darkblue rounded"
+                        className="w-8 h-8 flex items-center justify-center bg-blue-200 text-darkblue rounded-full hover:bg-blue-300 transition"
                       >
                         −
                       </button>
@@ -390,23 +399,25 @@ const BookNow = () => {
                             )
                           )
                         }
-                        className="w-16 text-center px-2 py-1 border rounded text-darkblue"
+                        className="w-16 text-center border border-gray-300 rounded-lg py-1 text-darkblue"
                       />
                       <button
                         type="button"
                         onClick={() =>
                           setNumPersons((prev) => prev + 1)
                         }
-                        className="px-2 py-1 bg-blue-200 text-darkblue rounded"
+                        className="w-8 h-8 flex items-center justify-center bg-blue-200 text-darkblue rounded-full hover:bg-blue-300 transition"
                       >
                         +
                       </button>
                     </div>
                   </div>
                 )}
+
+                {/* Action Button */}
                 {selectedPackage === pkg.key ? (
                   <button
-                    className="mt-auto px-4 py-2 rounded-lg font-semibold bg-red-100 text-red-700 hover:bg-red-200 transition flex items-center gap-2"
+                    className="mt-auto px-4 py-2 rounded-lg font-semibold bg-red-100 text-red-700 hover:bg-red-200 transition flex items-center justify-center gap-2"
                     onClick={handleRemovePackage}
                   >
                     <FaTimes /> Remove Package
@@ -430,15 +441,12 @@ const BookNow = () => {
         <div className="my-8 border-t border-blue-200"></div>
 
         {/* Individual Tours Section */}
-        <section className="px-1 sm:px-10 py-6 bg-white">
-          <h2 className="text-lg sm:text-lg md:text-xl lg:text-xl mb-3 text-center text-darkblue font-semibold">
+        <section className="px-4 sm:px-10 py-10 bg-white">
+          <h2 className="text-xl sm:text-xl md:text-2xl lg:text-2xl font-bold mb-8 text-center text-darkblue">
             Or Build Your Own Tour
           </h2>
 
-          <div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 px-1 sm:px-8 md:px-12 lg:px-16 xl:px-20
-"
-          >
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {Object.entries(tourDetails).map(
               ([key, details]) => {
                 const isSelected = selectedTours[key];
@@ -446,152 +454,143 @@ const BookNow = () => {
                 return (
                   <div
                     key={key}
-                    className={`rounded-3xl border-2 p-0 flex flex-col transition-all relative overflow-hidden cursor-pointer bg-white ${
+                    className={`rounded-2xl border-2 p-0 flex flex-col transition-all duration-300 transform hover:-translate-y-1 cursor-pointer bg-white relative overflow-hidden ${
                       isSelected
-                        ? "border-darkblue shadow-2xl"
-                        : "border-transparent shadow-lg hover:shadow-xl"
+                        ? "border-darkblue shadow-xl"
+                        : "border-gray-200 shadow-md hover:shadow-lg"
                     }`}
-                    style={{
-                      borderRadius: "1.8rem",
-                      boxShadow: isSelected
-                        ? "0 10px 36px rgba(51, 45, 86, 0.2)" // #332D56 with opacity
-                        : "0 4px 16px rgba(0, 0, 0, 0.09)",
-                    }}
                     onClick={() => openTourModal(key)}
                   >
                     {/* Selected Badge */}
                     {isSelected && (
-                      <div
-                        className="absolute top-0 right-0 bg-darkblue text-white px-4 py-2 rounded-bl-2xl font-bold text-xs shadow-lg z-10"
-                        style={{
-                          fontSize: "0.75rem",
-                          lineHeight: "1",
-                        }}
-                      >
+                      <div className="absolute top-4 right-4 bg-darkblue text-white px-3 py-1 rounded-full text-xs font-semibold z-10">
                         Selected
                       </div>
                     )}
 
-                    {/* Title */}
-                    <div className="flex items-center justify-between px-6 pt-6 mb-2">
-                      <span className="font-bold text-xl text-darkblue">
-                        {details.title}
-                      </span>
-                    </div>
-
-                    {/* Image */}
-                    <div className="w-full flex justify-center mb-4 px-4">
+                    {/* Image Container */}
+                    <div className="w-full h-48 overflow-hidden rounded-t-2xl">
                       <img
                         src={details.img}
                         alt={details.title}
-                        className="object-cover rounded-2xl shadow-2xl w-[340px] h-[220px] sm:w-[320px] sm:h-[200px]"
-                        style={{
-                          boxShadow:
-                            "0 4px 24px rgba(51, 45, 86, 0.13)", // darkblue tint
-                          background: "#f8fafc",
+                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                        onError={({ currentTarget }) => {
+                          currentTarget.src =
+                            "/placeholder-tour.jpg"; // Fallback image
                         }}
                       />
                     </div>
 
-                    {/* Price */}
-                    <div className="font-semibold text-darkblue mb-2 text-2xl flex items-center gap-1 px-6">
-                      <span>{details.price}</span>
-                      <span className="text-xs text-lightblue px-2 py-0.5 rounded bg-lightblue/10">
-                        /person
-                      </span>
-                    </div>
+                    {/* Content */}
+                    <div className="p-6 flex flex-col flex-grow">
+                      {/* Title */}
+                      <h3 className="font-bold text-lg text-darkblue mb-3">
+                        {details.title}
+                      </h3>
 
-                    {/* Includes */}
-                    <div className="mb-2 text-base text-gray-700 px-6">
-                      <span className="font-bold text-darkblue">
-                        Includes:
-                      </span>{" "}
-                      {details.includes}
-                    </div>
-
-                    {/* Guide */}
-                    <div className="mb-4 text-base text-gray-700 px-6">
-                      <span className="font-bold text-darkblue">
-                        Guide:
-                      </span>{" "}
-                      {details.guide}
-                    </div>
-
-                    {/* Number of Persons (only if selected) */}
-                    {isSelected && (
-                      <div className="flex items-center gap-4 mb-3 px-6">
-                        <label className="font-semibold text-darkblue whitespace-nowrap">
-                          Number of Persons:
-                        </label>
-                        <div className="flex items-center gap-2">
-                          <button
-                            type="button"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              setNumPersons((prev) =>
-                                Math.max(1, prev - 1)
-                              );
-                            }}
-                            className="px-3 py-1 text-darkblue rounded-lg text-lg hover:bg-gray-100 transition"
-                          >
-                            −
-                          </button>
-                          <input
-                            type="number"
-                            min="1"
-                            value={numPersons}
-                            onChange={(e) => {
-                              e.stopPropagation();
-                              const val = parseInt(
-                                e.target.value
-                              );
-                              setNumPersons(
-                                isNaN(val) || val < 1
-                                  ? 1
-                                  : val
-                              );
-                            }}
-                            className="w-16 text-center px-2 py-1 border border-gray-300 rounded-lg text-darkblue text-lg focus:outline-none focus:ring-2 focus:ring-darkblue/30"
-                          />
-                          <button
-                            type="button"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              setNumPersons(
-                                (prev) => prev + 1
-                              );
-                            }}
-                            className="px-3 py-1 text-darkblue rounded-lg text-lg hover:bg-gray-100 transition"
-                          >
-                            +
-                          </button>
-                        </div>
+                      {/* Price */}
+                      <div className="font-bold text-xl text-lightblue mb-3 flex items-center gap-2">
+                        <span>{details.price}</span>
+                        <span className="text-xs text-gray-500 font-normal">
+                          /person
+                        </span>
                       </div>
-                    )}
 
-                    {/* Action Button */}
-                    <div className="flex items-center px-6 gap-2 mb-4">
-                      {!isSelected ? (
-                        <button
-                          className="w-full px-4 py-2 rounded-lg font-semibold bg-darkblue text-white hover:bg-opacity-90 transition duration-200 shadow"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            handleTourSelect(key);
-                          }}
-                        >
-                          Book This Tour
-                        </button>
-                      ) : (
-                        <button
-                          className="w-full px-4 py-2 rounded-lg font-semibold bg-red-100 text-red-600 hover:bg-red-200 transition flex items-center justify-center gap-2 shadow"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            handleRemoveTour(key);
-                          }}
-                        >
-                          <FaTimes /> Remove
-                        </button>
+                      {/* Includes */}
+                      <div className="mb-2 text-sm text-gray-600">
+                        <span className="font-semibold text-darkblue">
+                          Includes:
+                        </span>{" "}
+                        {details.includes}
+                      </div>
+
+                      {/* Guide */}
+                      <div className="mb-4 text-sm text-gray-600">
+                        <span className="font-semibold text-darkblue">
+                          Guide:
+                        </span>{" "}
+                        {details.guide}
+                      </div>
+
+                      {/* Spacer to push buttons to bottom */}
+                      <div className="flex-grow"></div>
+
+                      {/* Number of Persons (only if selected) */}
+                      {isSelected && (
+                        <div className="mb-4">
+                          <label className="block font-semibold text-darkblue text-sm mb-2">
+                            Number of Persons:
+                          </label>
+                          <div className="flex items-center gap-3">
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                setNumPersons((prev) =>
+                                  Math.max(1, prev - 1)
+                                );
+                              }}
+                              className="w-8 h-8 flex items-center justify-center bg-blue-100 text-darkblue rounded-full hover:bg-blue-200 transition"
+                            >
+                              −
+                            </button>
+                            <input
+                              type="number"
+                              min="1"
+                              value={numPersons}
+                              onChange={(e) => {
+                                e.stopPropagation();
+                                const val = parseInt(
+                                  e.target.value
+                                );
+                                setNumPersons(
+                                  isNaN(val) || val < 1
+                                    ? 1
+                                    : val
+                                );
+                              }}
+                              className="w-16 text-center border border-gray-300 rounded-lg py-1 text-darkblue focus:outline-none focus:ring-2 focus:ring-darkblue/20"
+                            />
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                setNumPersons(
+                                  (prev) => prev + 1
+                                );
+                              }}
+                              className="w-8 h-8 flex items-center justify-center bg-blue-100 text-darkblue rounded-full hover:bg-blue-200 transition"
+                            >
+                              +
+                            </button>
+                          </div>
+                        </div>
                       )}
+
+                      {/* Action Button */}
+                      <div className="mt-2">
+                        {!isSelected ? (
+                          <button
+                            className="w-full px-4 py-2.5 rounded-lg font-semibold bg-darkblue text-white hover:bg-darkblue/90 transition shadow-sm"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleTourSelect(key);
+                            }}
+                          >
+                            Book This Tour
+                          </button>
+                        ) : (
+                          <button
+                            className="w-full px-4 py-2.5 rounded-lg font-semibold bg-red-100 text-red-700 hover:bg-red-200 transition flex items-center justify-center gap-2"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleRemoveTour(key);
+                            }}
+                          >
+                            <FaTimes /> Remove
+                          </button>
+                        )}
+                      </div>
                     </div>
                   </div>
                 );

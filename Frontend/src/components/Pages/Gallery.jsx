@@ -20,56 +20,69 @@ const Gallery = () => {
   ];
 
   // Gallery Images
-  const galleryItems = [
-    {
-      id: 1,
-      title: "Golden Temple at Dawn",
-      category: "religious",
-      img: "/assets/GoldenTemple/photo18.png",
-    },
-    {
-      id: 2,
-      title: "Jallianwala Bagh",
-      category: "historical",
-      img: "https://placehold.co/600x400/7c2d12/white?text=Jallianwala+Bagh",
-    },
-    {
-      id: 3,
-      title: "Langar at Golden Temple",
-      category: "religious",
-      img: "https://placehold.co/600x400/059669/white?text=Langar",
-    },
-    {
-      id: 4,
-      title: "Amritsari Street Food",
-      category: "food",
-      img: "https://placehold.co/600x400/dc2626/white?text=Street+Food",
-    },
-    {
-      id: 5,
-      title: "Wagah Border Ceremony",
-      category: "border",
-      img: "https://placehold.co/600x400/1f2937/white?text=Wagah+Border",
-    },
-    {
-      id: 6,
-      title: "Walled City Walk",
-      category: "historical",
-      img: "https://placehold.co/600x400/7c3aed/white?text=Walled+City",
-    },
-    {
-      id: 7,
-      title: "Temple Reflection",
-      category: "religious",
-      img: "https://placehold.co/600x400/0891b2/white?text=Reflection",
-    },
-    {
-      id: 8,
-      title: "Chole Bhature",
-      category: "food",
-      img: "https://placehold.co/600x400/eab308/white?text=Chole+Bhature",
-    },
-  ];
+const galleryItems = [
+  {
+    id: 1,
+    title: "Golden Temple at Dawn",
+    category: "religious",
+    img: "/assets/GoldenTemple/photo18.png",
+  },
+  {
+    id: 2,
+    title: "Devotion at Golden Temple",
+    category: "religious",
+    img: "/assets/GoldenTemple/photo19.png",
+  },
+  {
+    id: 3,
+    title: "Jallianwala Bagh",
+    category: "historical",
+    img: "/assets/GoldenTemple/photo14.png",
+  },
+  {
+    id: 4,
+    title: "Langar at Golden Temple",
+    category: "religious",
+    img: "/assets/GoldenTemple/photo21.png",
+  },
+  {
+    id: 5,
+    title: "Amritsari Street Food",
+    category: "food",
+    img: "/assets/FoodWalk/photo (63).png",
+  },
+  {
+    id: 6,
+    title: "Wagah Border Ceremony",
+    category: "border",
+    img: "/assets/WagahBorder/photo39.png",
+  },
+  {
+    id: 7,
+    title: "Our BSF Force",
+    category: "border",
+    img: "/assets/WagahBorder/photo26.png",
+  },
+  {
+    id: 8,
+    title: "Local Village Life",
+    category: "historical",
+    img: "/assets/VillageTour/photo (15).png",
+  },
+  {
+    id: 9,
+    title: "Temple Reflection",
+    category: "religious",
+    img: "/assets/GoldenTemple/photo18.png",
+  },
+  {
+    id: 10,
+    title: "Kulche Chole",
+    category: "food",
+    img: "/assets/FoodWalk/photo (4).png",
+  },
+];
+
 
   // Filter images
   const filteredItems = activeCategory === "all"

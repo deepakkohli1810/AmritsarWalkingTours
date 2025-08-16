@@ -42,7 +42,6 @@ const TourDetailsPage = () => {
 
   const images = [
       "/assets/WagahBorder/photo26.png",
-    "/assets/WagahBorder/photo28.png",
     "/assets/WagahBorder/photo24.png",
     "/assets/WagahBorder/photo25.png",
     "/assets/WagahBorder/photo27.png",

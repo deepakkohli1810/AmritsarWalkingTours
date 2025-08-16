@@ -1,31 +1,33 @@
-import React from 'react'
-import { Routes, Route } from 'react-router-dom'
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import Page2 from './components/Page2'
-import Page3 from './components/Page3'
-import WhyUs from './components/WhyUs'
-import SuggestiveTours from './components/SuggestiveTours'
-import ScrollToTop from './components/ScrollToTop'
-import BottomBar from './components/bottomBar'
-import Footer from './components/Footer'
-import Home from './components/Pages/Home'
-import GoldenTemple from './components/Pages/GoldenTemple'
-import BorderTour from './components/Pages/WagahBorder'
-import HeritageWalk from './components/Pages/HeritageWalk'
-import VillageTour from './components/Pages/VillageTour'
-import OneDayExcursion from './components/Pages/OneDayExcursion'
-import TwoDayExcursion from './components/Pages/TwoDayExcursion'
-import ThreeDayExcursion from './components/Pages/ThreeDayExcurison'
-import BookNow from './components/Pages/BookNow'
-import OurTours from './components/Pages/OurTours'
-import AllCards from './components/cards/AllCards'
-import AboutUs from './components/AboutUs'
-import Register from './components/Register'
-import Contact from './components/Pages/ContactUs'
-import TourDetailsPage from './components/Pages/TourDetailsPage'
-import FoodWalkingTour from './components/Pages/FoodWalkingTour'
-import Gallery from './components/Pages/Gallery'
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import Page2 from "./components/Page2";
+import Page3 from "./components/Page3";
+import WhyUs from "./components/WhyUs";
+import SuggestiveTours from "./components/SuggestiveTours";
+import ScrollToTop from "./components/ScrollToTop";
+import BottomBar from "./components/bottomBar";
+import Footer from "./components/Footer";
+import Home from "./components/Pages/Home";
+import GoldenTemple from "./components/Pages/GoldenTemple";
+import BorderTour from "./components/Pages/WagahBorder";
+
+import VillageTour from "./components/Pages/VillageTour";
+import OneDayExcursion from "./components/Pages/OneDayExcursion";
+import TwoDayExcursion from "./components/Pages/TwoDayExcursion";
+import ThreeDayExcursion from "./components/Pages/ThreeDayExcurison";
+import BookNow from "./components/Pages/BookNow";
+import OurTours from "./components/Pages/OurTours";
+import AllCards from "./components/cards/AllCards";
+import AboutUs from "./components/AboutUs";
+import Register from "./components/Register";
+import Contact from "./components/Pages/ContactUs";
+import TourDetailsPage from "./components/Pages/TourDetailsPage";
+import FoodWalkingTour from "./components/Pages/FoodWalkingTour";
+import Gallery from "./components/Pages/Gallery";
+import HeritageWalkingTour from "./components/Pages/HeritageWalkingTour";
+
 const App = () => {
   return (
     <>
@@ -40,6 +42,8 @@ const App = () => {
           path="/BorderTour"
           element={<BorderTour />}
         />
+    
+        '
         <Route
           path="/FoodTour"
           element={<FoodWalkingTour />}
@@ -48,15 +52,8 @@ const App = () => {
           path="/VillageTour"
           element={<VillageTour />}
         />
-
-        <Route
-          path="/HeritageWalk"
-          element={<HeritageWalk />}
-        />
-        <Route
-          path="/Gallery"
-          element={<Gallery />}
-        />
+        
+        <Route path="/Gallery" element={<Gallery />} />
         <Route
           path="/OneDayExcursion"
           element={<OneDayExcursion />}
@@ -75,6 +72,7 @@ const App = () => {
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/register" element={<Register />} />
         <Route path="/Contact" element={<Contact />} />
+        <Route path="/HeritageWalkingTour" element={<HeritageWalkingTour/>} />
         <Route
           path="/TourDetailsPage"
           element={<TourDetailsPage />}
@@ -82,6 +80,6 @@ const App = () => {
       </Routes>
     </>
   );
-}
+};
 
-export default App
+export default App;

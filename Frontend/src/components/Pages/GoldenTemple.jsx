@@ -1230,6 +1230,8 @@ const TourDetailsPage = () => {
                 ))}
               </div>
             </section>
+
+            
           </div>
 
           {/* Right Column - Booking & Info */}
@@ -1523,7 +1525,9 @@ const TourDetailsPage = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <button
-                  onClick={() => {       navigate("/BookNow")}  }
+                  onClick={() => {
+                    navigate("/BookNow");
+                  }}
                   className="px-6 py-3 bg-white text-darkblue font-semibold rounded-xl shadow-md hover:bg-gray-100 transition text-center"
                 >
                   Book Your Spiritual Journey

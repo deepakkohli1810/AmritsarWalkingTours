@@ -372,13 +372,7 @@ const Register = () => {
                                         key={tour.key}
                                         className="flex items-center p-3 bg-gray-50 rounded-xl border border-gray-100 hover:border-darkblue/30 transition"
                                       >
-                                        <div className="bg-gradient-to-r from-darkblue to-purple-700 p-1.5 rounded-lg mr-3">
-                                          <div className="bg-white p-1.5 rounded-md">
-                                            <span className="text-darkblue font-bold text-xs">
-                                              ✓
-                                            </span>
-                                          </div>
-                                        </div>
+                                       
                                         <div className="flex-1">
                                           <p className="font-medium text-gray-800">
                                             {tour.title}

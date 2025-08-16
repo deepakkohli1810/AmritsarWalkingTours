@@ -61,7 +61,7 @@ const SuggestiveTours = () => {
     <section className="min-h-screen w-full px-4 sm:px-6 md:px-10 lg:px-20 xl:px-24 py-12 bg-gradient-to-br from-blue-50 via-white to-indigo-50">
       {/* Hero Section */}
       <div className="text-center max-w-4xl mx-auto mb-12">
-        <h1 className="inline-block text-4xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-r from-darkblue to-indigo-700 bg-clip-text text-transparent mb-4 tracking-tight leading-tight px-1">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 leading-normal inline-block px-2 py-[4px] text-darkblue  ">
           Suggested Tour Packages
         </h1>
 

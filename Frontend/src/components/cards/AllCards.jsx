@@ -30,7 +30,7 @@ const cardData = [
     title: "Amritsar's Heritage Walk",
     videoUrl:
       "https://res.cloudinary.com/dmgib4rwd/video/upload/v1750491888/heritagewalkcard_-_Made_with_Clipchamp_hjgbwq.mp4",
-    detailsPath: "/HeritageWalk",
+    detailsPath: "/HeritageWalkingTour",
   },
 ];
 
