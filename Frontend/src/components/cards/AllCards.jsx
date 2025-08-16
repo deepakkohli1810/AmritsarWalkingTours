@@ -30,13 +30,13 @@ const cardData = [
     title: "Amritsar's Heritage Walk",
     videoUrl:
       "https://res.cloudinary.com/dmgib4rwd/video/upload/v1750491888/heritagewalkcard_-_Made_with_Clipchamp_hjgbwq.mp4",
-    detailsPath: "/ToursDetails/:heritage-walk",
+    detailsPath: "/HeritageWalk",
   },
 ];
 
 const AllCards = () => {
 return (
-    <div className="grid gap-6 px-4 sm:px-8 md:px-16 lg:px-32 mt-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="grid gap-6 px-4 sm:px-4 md:px-16 lg:px-32 mt-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {cardData.map((card, index) => (
             <TourCard key={index} {...card} />
         ))}

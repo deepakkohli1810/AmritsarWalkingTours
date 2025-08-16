@@ -1,345 +1,269 @@
+// src/components/Gallery.jsx
 import React, { useState } from "react";
-import { motion } from "framer-motion";
-import Navbar from "./Navbar";
-import BottomBar from "./bottomBar";
-import Footer from "./Footer";
-import {
-  FaRegImages,
-  FaRegGem,
-  FaMapMarkedAlt,
-  FaUtensils,
-  FaBorderAll,
-  FaTimes,
-} from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaTimes } from "react-icons/fa";
+import Navbar from "../Navbar";
+import BottomBar from "../bottomBar";
+import Footer from "../Footer";
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
-  const [activeCategory, setActiveCategory] =
-    useState("all");
+  const [activeCategory, setActiveCategory] = useState("all");
 
+  // Categories
   const categories = [
-    { id: "all", name: "All", icon: FaRegImages },
-    {
-      id: "religious",
-      name: "Sacred Sites",
-      icon: FaRegGem,
-    },
-    {
-      id: "historical",
-      name: "History",
-      icon: FaMapMarkedAlt,
-    },
-    { id: "food", name: "Food Walk", icon: FaUtensils },
-    { id: "border", name: "Wagah", icon: FaBorderAll },
+    { id: "all", name: "All" },
+    { id: "religious", name: "Sacred Sites" },
+    { id: "historical", name: "History" },
+    { id: "food", name: "Food Walk" },
+    { id: "border", name: "Wagah" },
   ];
 
+  // Gallery Images
   const galleryItems = [
     {
       id: 1,
       title: "Golden Temple at Dawn",
-      description:
-        "The sacred Harmandir Sahib glistening in the morning light",
       category: "religious",
-      img: "https://placehold.co/600x400/332D56/white?text=Golden+Temple",
-      location: "Amritsar",
+      img: "/assets/GoldenTemple/photo18.png",
     },
     {
       id: 2,
-      title: "Jallianwala Bagh Memorial",
-      description:
-        "The historic garden commemorating a pivotal moment in India's freedom struggle",
+      title: "Jallianwala Bagh",
       category: "historical",
-      img: "https://placehold.co/600x400/332D56/white?text=Jallianwala+Bagh",
-      location: "Amritsar",
+      img: "https://placehold.co/600x400/7c2d12/white?text=Jallianwala+Bagh",
     },
     {
       id: 3,
       title: "Langar at Golden Temple",
-      description:
-        "The world's largest community kitchen serving free meals to all visitors",
       category: "religious",
-      img: "https://placehold.co/600x400/332D56/white?text=Langar",
-      location: "Amritsar",
+      img: "https://placehold.co/600x400/059669/white?text=Langar",
     },
     {
       id: 4,
-      title: "Traditional Amritsari Street Food",
-      description:
-        "Authentic Amritsari kulcha and lassi at a local eatery",
+      title: "Amritsari Street Food",
       category: "food",
-      img: "https://placehold.co/600x400/332D56/white?text=Amritsari+Food",
-      location: "Walled City",
+      img: "https://placehold.co/600x400/dc2626/white?text=Street+Food",
     },
     {
       id: 5,
       title: "Wagah Border Ceremony",
-      description:
-        "The famous Beating Retreat ceremony at the India-Pakistan border",
       category: "border",
-      img: "https://placehold.co/600x400/332D56/white?text=Wagah+Border",
-      location: "Wagah",
+      img: "https://placehold.co/600x400/1f2937/white?text=Wagah+Border",
     },
     {
       id: 6,
-      title: "Heritage Walk in Walled City",
-      description:
-        "Exploring the narrow lanes and historic architecture of Old Amritsar",
+      title: "Walled City Walk",
       category: "historical",
-      img: "https://placehold.co/600x400/332D56/white?text=Walled+City",
-      location: "Amritsar",
+      img: "https://placehold.co/600x400/7c3aed/white?text=Walled+City",
     },
     {
       id: 7,
-      title: "Golden Temple Reflection",
-      description:
-        "The stunning reflection of Harmandir Sahib in the Amrit Sarovar",
+      title: "Temple Reflection",
       category: "religious",
-      img: "https://placehold.co/600x400/332D56/white?text=Temple+Reflection",
-      location: "Amritsar",
+      img: "https://placehold.co/600x400/0891b2/white?text=Reflection",
     },
     {
       id: 8,
-      title: "Amritsari Chole Bhature",
-      description:
-        "Iconic Amritsari street food experience",
+      title: "Chole Bhature",
       category: "food",
-      img: "https://placehold.co/600x400/332D56/white?text=Chole+Bhature",
-      location: "Walled City",
+      img: "https://placehold.co/600x400/eab308/white?text=Chole+Bhature",
     },
   ];
 
-  // Filter items based on active category
-  const filteredItems =
-    activeCategory === "all"
-      ? galleryItems
-      : galleryItems.filter(
-          (item) => item.category === activeCategory
-        );
+  // Filter images
+  const filteredItems = activeCategory === "all"
+    ? galleryItems
+    : galleryItems.filter(item => item.category === activeCategory);
+
+  // Animation Variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+  };
+
+  const buttonVariants = {
+    hover: { scale: 1.05, boxShadow: "0px 6px 15px rgba(0,0,0,0.1)" },
+  };
 
   return (
     <>
       <Navbar />
 
-      <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
-        <div className="container mx-auto px-4 py-12">
-          {/* Hero Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
+      <div className="min-h-screen bg-gray-50">
+        {/* Hero Section */}
+        <section className="py-12 text-center max-w-3xl mx-auto px-4">
+          <motion.h1
+            initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-12 max-w-3xl mx-auto"
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-3xl md:text-4xl font-bold text-gray-800"
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-              Amritsar Through Our Lens
-            </h1>
-            <p className="text-xl text-gray-600">
-              Discover the spiritual, historical, and
-              culinary treasures of Amritsar through these
-              captivating images from our tours.
-            </p>
-          </motion.div>
+            Amritsar Gallery
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="text-gray-600 mt-3"
+          >
+            A glimpse into the soul of Punjab through our walking tours.
+          </motion.p>
+        </section>
 
-          {/* Category Filters */}
+        {/* Category Filters */}
+        <section className="mb-8 px-4">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.4 }}
-            className="mb-10"
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="flex flex-wrap justify-center gap-3"
           >
-            <div className="flex flex-wrap justify-center gap-2">
-              {categories.map((category) => {
-                const Icon = category.icon;
-                return (
-                  <button
-                    key={category.id}
-                    onClick={() =>
-                      setActiveCategory(category.id)
-                    }
-                    className={`px-5 py-2.5 rounded-full font-medium transition-all duration-300 flex items-center gap-2 ${
-                      activeCategory === category.id
-                        ? "bg-darkblue text-white shadow-lg shadow-darkblue/20"
-                        : "bg-white text-gray-700 border border-gray-200 hover:bg-gray-50"
-                    }`}
-                  >
-                    <Icon className="text-lg" />
-                    {category.name}
-                  </button>
-                );
-              })}
-            </div>
-          </motion.div>
-
-          {/* Gallery Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredItems.map((item) => (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3 }}
-                className="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300 group relative"
+            {categories.map((cat) => (
+              <motion.button
+                key={cat.id}
+                onClick={() => setActiveCategory(cat.id)}
+                variants={buttonVariants}
+                whileHover="hover"
+                className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 capitalize
+                  ${activeCategory === cat.id
+                    ? "bg-blue-600 text-white shadow-md"
+                    : "bg-white text-gray-700 border border-gray-300 hover:bg-gray-100"
+                  }`}
               >
-                <div
-                  className="relative aspect-[4/3] cursor-pointer"
+                {cat.name}
+              </motion.button>
+            ))}
+          </motion.div>
+        </section>
+
+        {/* Gallery Grid */}
+        <section className="px-4 pb-12">
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 max-w-6xl mx-auto"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            {filteredItems.length > 0 ? (
+              filteredItems.map((item) => (
+                <motion.div
+                  key={item.id}
+                  variants={itemVariants}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer"
                   onClick={() => setSelectedImage(item)}
                 >
-                  <img
-                    src={item.img}
-                    alt={item.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
-                    <h3 className="text-xl font-bold text-white mb-1">
-                      {item.title}
-                    </h3>
-                    <p className="text-gray-200 text-sm">
-                      {item.location}
-                    </p>
+                  <div className="aspect-[4/3] overflow-hidden">
+                    <img
+                      src={item.img}
+                      alt={item.title}
+                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    />
                   </div>
-
-                  {/* Category Badge */}
-                  <div className="absolute top-4 right-4 bg-darkblue/90 text-white px-3 py-1 rounded-full text-sm">
-                    {
-                      categories.find(
-                        (c) => c.id === item.category
-                      )?.name
-                    }
+                  <div className="p-3">
+                    <h3 className="text-base font-medium text-gray-800">{item.title}</h3>
                   </div>
-                </div>
-
-                <div className="p-4">
-                  <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm mb-3 line-clamp-2">
-                    {item.description}
-                  </p>
-                  <div className="flex items-center text-gray-500 text-sm">
-                    <FaMapMarkedAlt className="mr-1.5" />
-                    <span>{item.location}</span>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Empty State */}
-          {filteredItems.length === 0 && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="text-center py-16 bg-white rounded-2xl shadow-lg border border-gray-100"
-            >
-              <div className="text-5xl mb-4">📸</div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                No images in this category
-              </h3>
-              <p className="text-gray-600 max-w-md mx-auto">
-                We're working on adding more images to this
-                category. Please check back later or explore
-                other categories.
-              </p>
-              <button
-                onClick={() => setActiveCategory("all")}
-                className="mt-4 px-5 py-2 bg-darkblue text-white rounded-lg font-medium hover:bg-darkblue/90 transition"
+                </motion.div>
+              ))
+            ) : (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="col-span-full text-center py-10 text-gray-500"
               >
-                View All Images
-              </button>
-            </motion.div>
-          )}
+                <p>No images in this category.</p>
+                <button
+                  onClick={() => setActiveCategory("all")}
+                  className="mt-2 text-blue-600 hover:underline text-sm"
+                >
+                  View all images
+                </button>
+              </motion.div>
+            )}
+          </motion.div>
+        </section>
 
-          {/* Lightbox */}
+        {/* Lightbox */}
+        <AnimatePresence>
           {selectedImage && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
               onClick={() => setSelectedImage(null)}
             >
-              <div
-                className="relative max-w-4xl w-full"
+              <motion.div
+                initial={{ scale: 0.9 }}
+                animate={{ scale: 1 }}
+                exit={{ scale: 0.9 }}
+                className="relative max-w-2xl w-full"
                 onClick={(e) => e.stopPropagation()}
               >
-                <button
-                  className="absolute -top-12 right-0 text-white hover:text-gray-300 transition"
+                <motion.button
+                  whileHover={{ scale: 1.2, rotate: 90 }}
+                  className="absolute -top-12 right-0 text-white hover:text-yellow-300 transition"
                   onClick={() => setSelectedImage(null)}
                 >
-                  <FaTimes className="text-2xl" />
-                </button>
+                  <FaTimes size={28} />
+                </motion.button>
 
-                <div className="relative aspect-[16/9]">
-                  <img
-                    src={selectedImage.img}
-                    alt={selectedImage.title}
-                    className="w-full h-full object-contain rounded-xl"
-                  />
+                <motion.img
+                  src={selectedImage.img}
+                  alt={selectedImage.title}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5 }}
+                  className="w-full h-auto max-h-[80vh] object-contain rounded-xl"
+                />
 
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-white">
-                    <h2 className="text-2xl font-bold mb-2">
-                      {selectedImage.title}
-                    </h2>
-                    <p className="text-gray-200 mb-3">
-                      {selectedImage.description}
-                    </p>
-                    <div className="flex items-center">
-                      <FaMapMarkedAlt className="mr-2" />
-                      <span>{selectedImage.location}</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-4 text-center text-white/70">
-                  Click anywhere outside the image to close
-                </div>
-              </div>
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="text-white text-center mt-4 text-sm"
+                >
+                  {selectedImage.title}
+                </motion.p>
+              </motion.div>
             </motion.div>
           )}
-        </div>
+        </AnimatePresence>
 
         {/* Call to Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          className="container mx-auto px-4 py-12"
-        >
-          <div className="bg-gradient-to-r from-darkblue to-purple-700 rounded-3xl overflow-hidden shadow-2xl">
-            <div className="grid grid-cols-1 lg:grid-cols-2">
-              <div className="p-8 md:p-12">
-                <h2 className="text-3xl font-bold text-white mb-4">
-                  Ready to Experience Amritsar?
-                </h2>
-                <p className="text-lg text-white/90 mb-6 max-w-xl">
-                  Join us on a journey through the spiritual
-                  heart of Punjab. Our expert guides will
-                  show you the authentic Amritsar that only
-                  locals know.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <a
-                    href="/BookNow"
-                    className="px-6 py-3 bg-white text-darkblue font-semibold rounded-xl shadow-md hover:bg-gray-100 transition text-center"
-                  >
-                    Book Your Tour
-                  </a>
-                  <a
-                    href="/contact"
-                    className="px-6 py-3 bg-transparent border-2 border-white text-white font-semibold rounded-xl hover:bg-white/10 transition text-center"
-                  >
-                    Contact Us
-                  </a>
-                </div>
-              </div>
-
-              <div className="hidden lg:block relative">
-                <div className="absolute inset-0 bg-[url('https://placehold.co/800x600/332D56/white?text=Golden+Temple')] bg-cover bg-center opacity-90"></div>
-                <div className="absolute inset-0 bg-gradient-to-l from-darkblue to-transparent/50"></div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
+        <section className="px-4 pb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.5 }}
+            className="max-w-4xl mx-auto text-center bg-blue-600 text-white rounded-2xl p-8 shadow-lg"
+          >
+            <h2 className="text-2xl font-bold mb-3">Love what you see?</h2>
+            <p className="mb-6 opacity-90">Join our walking tour and experience Amritsar in person.</p>
+            <motion.a
+              href="/BookNow"
+              whileHover={{ scale: 1.05, boxShadow: "0px 8px 20px rgba(0,0,0,0.2)" }}
+              className="inline-block bg-white text-blue-600 font-semibold px-6 py-2 rounded-full transition-all"
+            >
+              Book a Tour
+            </motion.a>
+          </motion.div>
+        </section>
       </div>
 
       <BottomBar />

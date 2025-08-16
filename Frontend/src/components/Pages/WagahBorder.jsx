@@ -17,6 +17,7 @@ import {
   Video,
   ExternalLink,
   Phone,
+  Mails
 } from "lucide-react";
 import Navbar from "../Navbar";
 import DatePicker from "react-datepicker";
@@ -26,7 +27,7 @@ import WhyUs from "../WhyUs";
 import Footer from "../Footer";
 import BottomBar from "../bottomBar";
 import { motion, AnimatePresence } from "framer-motion";
-
+import { Link } from "react-router-dom";
 const TourDetailsPage = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [startDate, setStartDate] = useState(new Date());
@@ -96,57 +97,51 @@ const TourDetailsPage = () => {
   ];
 
   // Itinerary details
-  const itinerary = [
-    {
-      title: "Hotel Pickup",
-      duration: "08:00 AM",
-      description:
-        "Your journey begins with a comfortable pickup from your hotel in Amritsar. Our guide will share insights about the day ahead.",
-      icon: "🏠",
-    },
-    {
-      title: "Drive on National Highway 1",
-      duration: "45 min",
-      description:
-        "Enjoy a scenic drive from Amritsar city towards the Wagah Border along the historic Grand Trunk Road (NH1).",
-      icon: "🛣️",
-    },
-    {
-      title: "Pass by Khalsa College",
-      duration: "10 min",
-      description:
-        "Admire the iconic Indo-Saracenic architecture of Khalsa College, a landmark of Amritsar with deep historical significance.",
-      icon: "🏫",
-    },
-    {
-      title: "Attari – Last Railway Station of India",
-      duration: "15 min",
-      description:
-        "Stop at Attari, the final railway station on the Indian side, and learn about its significance in Indo-Pak relations.",
-      icon: "🚉",
-    },
-    {
-      title: "Border Security Force (BSF) Museum",
-      duration: "25 min",
-      description:
-        "Visit the BSF Museum to explore exhibits on border security, history, and the lives of border guards who protect our nation.",
-      icon: "🏛️",
-    },
-    {
-      title: "Wagah Border Ceremony",
-      duration: "04:00 PM - 05:30 PM",
-      description:
-        "Experience the electrifying Beating Retreat Ceremony, with synchronized drills, flag lowering, and patriotic fervor at the India-Pakistan border.",
-      icon: "🇮🇳",
-    },
-    {
-      title: "Return to Amritsar",
-      duration: "06:00 PM",
-      description:
-        "Relax as you drive back to the city, reflecting on the unique border experience with your fellow travelers.",
-      icon: "🚌",
-    },
-  ];
+ const itinerary = [
+   {
+     title: "Hotel Pickup",
+     duration: "02:00 PM",
+     description:
+       "Your journey begins with a comfortable pickup from your hotel in Amritsar. Our guide will share insights about the day ahead.",
+   },
+   {
+     title: "Drive on National Highway 1",
+     duration: "45 min",
+     description:
+       "Enjoy a scenic drive from Amritsar city towards the Wagah Border along the historic Grand Trunk Road (NH1).",
+   },
+   {
+     title: "Pass by Khalsa College",
+     duration: "10 min",
+     description:
+       "Admire the iconic Indo-Saracenic architecture of Khalsa College, a landmark of Amritsar with deep historical significance.",
+   },
+   {
+     title: "Attari – Last Railway Station of India",
+     duration: "15 min",
+     description:
+       "Stop at Attari, the final railway station on the Indian side, and learn about its significance in Indo-Pak relations.",
+   },
+   {
+     title: "Border Security Force (BSF) Museum",
+     duration: "25 min",
+     description:
+       "Visit the BSF Museum to explore exhibits on border security, history, and the lives of border guards who protect our nation.",
+   },
+   {
+     title: "Wagah Border Ceremony",
+     duration: "04:00 PM - 05:30 PM",
+     description:
+       "Experience the electrifying Beating Retreat Ceremony, with synchronized drills, flag lowering, and patriotic fervor at the India-Pakistan border.",
+   },
+   {
+     title: "Return to Amritsar",
+     duration: "06:00 PM",
+     description:
+       "Relax as you drive back to the city, reflecting on the unique border experience with your fellow travelers.",
+   },
+ ];
+
 
   // Video content
   const videos = [
@@ -185,28 +180,6 @@ const TourDetailsPage = () => {
 
       <div className="max-w-7xl mx-auto px-4 py-6 sm:py-8">
         {/* Breadcrumb Navigation */}
-        <nav className="mb-6 hidden sm:block">
-          <ol className="flex items-center text-sm text-gray-500">
-            <li>
-              <a href="/" className="hover:text-darkblue">
-                Home
-              </a>
-            </li>
-            <span className="mx-2">/</span>
-            <li>
-              <a
-                href="/tours"
-                className="hover:text-darkblue"
-              >
-                Tours
-              </a>
-            </li>
-            <span className="mx-2">/</span>
-            <li className="text-darkblue font-medium">
-              Wagah Border Tour
-            </li>
-          </ol>
-        </nav>
 
         {/* Tour Header */}
         <header className="mb-8">
@@ -221,9 +194,9 @@ const TourDetailsPage = () => {
                 </span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl font-medium text-gray-900 mb-2">
+              <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">
                 AWT's Special{" "}
-                <span className="text-darkblue">
+                <span className="text-gradient bg-gradient-to-r from-[#332D56] to-[#4E6688] bg-clip-text text-transparent">
                   Wagah Border Tour
                 </span>
               </h1>
@@ -383,7 +356,7 @@ const TourDetailsPage = () => {
             {/* Tour Tabs */}
             <div className="mb-8">
               <div className="border-b border-gray-200">
-                <nav className="flex -mb-px space-x-8">
+                <nav className="flex -mb-px space-x-6 overflow-x-auto scrollbar-hide sm:space-x-8">
                   {[
                     {
                       id: "overview",
@@ -1073,8 +1046,130 @@ const TourDetailsPage = () => {
               </AnimatePresence>
             </div>
 
+            {/* Pricing Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="bg-white block md:hidden rounded-2xl shadow-xl border border-gray-100 overflow-hidden"
+            >
+              <div className="bg-gradient-to-r from-[#332D56] to-[#4E6688] p-5">
+                <div className="flex justify-between items-start">
+                  <div>
+                    <p className="text-amber-100 text-sm">
+                      Starting from
+                    </p>
+                    <div className="flex items-baseline">
+                      <span className="text-3xl font-bold text-white">
+                        ₹1499
+                      </span>
+                      <span className="text-amber-100 ml-1">
+                        per person
+                      </span>
+                    </div>
+                  </div>
+                  <div className="bg-white/20 px-3 py-1 rounded-full text-white text-sm">
+                    Most Popular
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-5 space-y-5">
+                {/* Date Selection */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Select Date
+                  </label>
+                  <div className="relative">
+                    <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <DatePicker
+                      selected={startDate}
+                      onChange={(date) =>
+                        setStartDate(date)
+                      }
+                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-darkblue/20 focus:border-darkblue outline-none transition"
+                      dateFormat="EEE dd MMM, yyyy"
+                      minDate={new Date()}
+                      popperPlacement="bottom"
+                      placeholderText="Select date"
+                    />
+                  </div>
+                </div>
+
+                {/* Guests Selection */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Number of Guests
+                  </label>
+                  <div className="relative">
+                    <Users className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <select
+                      value={guests}
+                      onChange={(e) =>
+                        setGuests(Number(e.target.value))
+                      }
+                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-darkblue/20 focus:border-darkblue outline-none appearance-none bg-white transition"
+                    >
+                      {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(
+                        (num) => (
+                          <option key={num} value={num}>
+                            {num} Guest{num > 1 ? "s" : ""}
+                          </option>
+                        )
+                      )}
+                    </select>
+                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                      <ChevronDown className="w-5 h-5" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Price Summary */}
+                <div className="border-t border-gray-200 pt-4">
+                  <div className="flex justify-between text-base">
+                    <span>Base Price (x{guests})</span>
+                    <span>
+                      ₹{(1499 * guests).toLocaleString()}
+                    </span>
+                  </div>
+
+                  <div className="border-t border-gray-200 mt-3 pt-3">
+                    <div className="flex justify-between font-bold text-lg">
+                      <span>Total</span>
+                      <span>
+                        ₹{(1499 * guests).toLocaleString()}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Book Now Button */}
+
+                <Link
+                  to="/BookNow"
+                  className="w-full bg-gradient-to-r from-[#332D56] to-[#4E6688] text-white py-3.5 rounded-xl font-semibold hover:bg-darkblue/90 transition flex items-center justify-center"
+                >
+                  Book Now
+                </Link>
+                {/* Trust Indicators */}
+                <div className="space-y-2 pt-2 border-t border-gray-200">
+                  <div className="flex items-center text-sm text-gray-600">
+                    <Check className="w-4 h-4 text-green-500 mr-2" />
+                    Free cancellation up to 24 hours before
+                  </div>
+                  <div className="flex items-center text-sm text-gray-600">
+                    <Check className="w-4 h-4 text-green-500 mr-2" />
+                    Reserve now & pay later
+                  </div>
+                  <div className="flex items-center text-sm text-gray-600">
+                    <Check className="w-4 h-4 text-green-500 mr-2" />
+                    Secure payment
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
             {/* Suggested Videos */}
-            <section className="mb-10">
+            <section className="mb-10 mt-10 ">
               <div className="flex items-center justify-between mb-5">
                 <h2 className="text-2xl font-bold text-gray-900 flex items-center">
                   <Video className="w-6 h-6 text-darkblue mr-2" />
@@ -1127,9 +1222,9 @@ const TourDetailsPage = () => {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden"
+                className="bg-white hidden md:block rounded-2xl shadow-xl border border-gray-100 overflow-hidden"
               >
-                <div className="bg-gradient-to-r from-amber-500 to-amber-600 p-5">
+                <div className="bg-gradient-to-r from-[#332D56] to-[#4E6688] p-5">
                   <div className="flex justify-between items-start">
                     <div>
                       <p className="text-amber-100 text-sm">
@@ -1137,7 +1232,7 @@ const TourDetailsPage = () => {
                       </p>
                       <div className="flex items-baseline">
                         <span className="text-3xl font-bold text-white">
-                          ₹999
+                          ₹1499
                         </span>
                         <span className="text-amber-100 ml-1">
                           per person
@@ -1205,49 +1300,29 @@ const TourDetailsPage = () => {
                     <div className="flex justify-between text-base">
                       <span>Base Price (x{guests})</span>
                       <span>
-                        ₹{(999 * guests).toLocaleString()}
+                        ₹{(1499 * guests).toLocaleString()}
                       </span>
                     </div>
-                    <div className="flex justify-between text-base mt-2">
-                      <span>Service Fee</span>
-                      <span>
-                        ₹{(99 * guests).toLocaleString()}
-                      </span>
-                    </div>
+
                     <div className="border-t border-gray-200 mt-3 pt-3">
                       <div className="flex justify-between font-bold text-lg">
                         <span>Total</span>
                         <span>
                           ₹
-                          {(
-                            (999 + 99) *
-                            guests
-                          ).toLocaleString()}
+                          {(1499 * guests).toLocaleString()}
                         </span>
                       </div>
                     </div>
                   </div>
 
                   {/* Book Now Button */}
-                  <button
-                    onClick={() => {
-                      const bookingData = {
-                        tour: "Wagah Border Tour",
-                        date: startDate,
-                        guests,
-                        price: (999 + 99) * guests,
-                      };
-                      localStorage.setItem(
-                        "bookingDetails",
-                        JSON.stringify(bookingData)
-                      );
-                      window.location.href = "/register";
-                    }}
-                    className="w-full bg-darkblue text-white py-3.5 rounded-xl font-semibold hover:bg-darkblue/90 transition flex items-center justify-center"
+
+                  <Link
+                    to="/BookNow"
+                    className="w-full bg-gradient-to-r from-[#332D56] to-[#4E6688] text-white py-3.5 rounded-xl font-semibold hover:bg-darkblue/90 transition flex items-center justify-center"
                   >
                     Book Now
-                  </button>
-
+                  </Link>
                   {/* Trust Indicators */}
                   <div className="space-y-2 pt-2 border-t border-gray-200">
                     <div className="flex items-center text-sm text-gray-600">
@@ -1376,13 +1451,13 @@ const TourDetailsPage = () => {
                         href="tel:+911234567890"
                         className="text-darkblue hover:underline"
                       >
-                        +91 12345 67890
+                        +91 95923 42444
                       </a>
                     </div>
                   </div>
                   <div className="flex items-center text-sm">
                     <div className="bg-blue-100 text-blue-700 w-8 h-8 rounded-full flex items-center justify-center mr-3">
-                      {/* <Mail className="w-4 h-4" /> */}
+                      <Mails className="w-4 h-4" />
                     </div>
                     <div>
                       <p className="font-medium">
@@ -1392,7 +1467,7 @@ const TourDetailsPage = () => {
                         href="mailto:info@amritsartours.com"
                         className="text-darkblue hover:underline"
                       >
-                        info@amritsartours.com
+                        info@amritsarwalkingtours.com
                       </a>
                     </div>
                   </div>
@@ -1423,44 +1498,31 @@ const TourDetailsPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2">
             <div className="p-8 md:p-10">
               <h2 className="text-3xl font-bold text-white mb-4">
-                Ready to Experience the Wagah Border
-                Ceremony?
+                Experience the Spiritual Heart of Punjab
               </h2>
               <p className="text-xl text-blue-100 mb-6 max-w-xl">
-                Join thousands of satisfied travelers who've
-                experienced this iconic ceremony with our
-                expert guidance and premium access.
+                Join thousands of travelers who have
+                transformed their understanding of
+                spirituality through our Golden Temple tour.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <button
-                  onClick={() => {
-                    const bookingData = {
-                      tour: "Wagah Border Tour",
-                      date: startDate,
-                      guests,
-                      price: (999 + 99) * guests,
-                    };
-                    localStorage.setItem(
-                      "bookingDetails",
-                      JSON.stringify(bookingData)
-                    );
-                    window.location.href = "/register";
-                  }}
+                  onClick={() => {}}
                   className="px-6 py-3 bg-white text-darkblue font-semibold rounded-xl shadow-md hover:bg-gray-100 transition text-center"
                 >
-                  Book Your Spot Now
+                  Book Your Spiritual Journey
                 </button>
-                <a
-                  href="/contact"
+                <Link
+                  to="/contact"
                   className="px-6 py-3 bg-transparent border-2 border-white text-white font-semibold rounded-xl hover:bg-white/10 transition text-center"
                 >
                   Have Questions? Contact Us
-                </a>
+                </Link>
               </div>
             </div>
 
             <div className="hidden lg:block relative">
-              <div className="absolute inset-0 bg-[url('/assets/WagahBorder/photo28.png')] bg-cover bg-center opacity-90"></div>
+              <div className="absolute inset-0 bg-[url('/assets/GoldenTemple/photo1.png')] bg-cover bg-center opacity-90"></div>
               <div className="absolute inset-0 bg-gradient-to-l from-darkblue to-transparent/50"></div>
             </div>
           </div>
@@ -1502,7 +1564,7 @@ const TourDetailsPage = () => {
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6 text-white">
                   <div className="flex justify-between items-end">
                     <div>
-                      <h2 className="text-2xl font-bold mb-2">
+                      <h2 className="text-sm lg:text-xl md:text-xl font-bold mb-0">
                         Wagah Border Ceremony
                       </h2>
                       <p className="text-gray-200">

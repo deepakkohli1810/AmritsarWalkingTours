@@ -1,6 +1,5 @@
 import React from 'react'
 import Navbar from '../Navbar'
-import TourDetailsPage from '../TourDetailsPage'
 import SuggestiveTours from '../SuggestiveTours'
 import AllCards from '../cards/AllCards'
 import WhyUs from '../WhyUs'

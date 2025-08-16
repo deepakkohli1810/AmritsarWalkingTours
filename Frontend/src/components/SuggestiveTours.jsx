@@ -1,106 +1,187 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 const tours = [
-{
-  title: 'One Day Excursion',
-  image: '/assets/photos/photo10.png',
-  places: ['Golden Temple', 'Jallianwala Bagh', 'Partition Museum', 'Border Tour'],
-  perks: ['English speaking guide', 'Comfortable AC car'],
-  path: '/OneDayExcursion'
-},
-
   {
-    title: 'Two Day Excursion',
-    image: '/assets/photos/photo3.png',
-    places: ['Food Walking Tour', 'Heritage Walk', 'Durgiana Mandir', 'Gobindgarh Fort'],
-    perks: ['English speaking guide', 'Comfortable AC car'],
-  path: '/TwoDayExcursion'
-
+    title: "One Day Excursion",
+    subtitle:
+      "Experience Amritsar’s iconic landmarks in a single day",
+    image: "/assets/photos/photo10.png",
+    places: [
+      "Golden Temple",
+      "Jallianwala Bagh",
+      "Partition Museum",
+      "Border Ceremony",
+    ],
+    perks: [
+      "English-speaking guide",
+      "AC private vehicle",
+      "Lunch included",
+    ],
+    path: "/OneDayExcursion",
   },
   {
-    title: 'Three Day Excursion',
-    image: '/assets/photos/photo7.png',
-    places: ['Village Tour', 'Shopping in Local Market', 'Partition Museum', 'Border Tour'],
-    perks: ['English speaking guide', 'Comfortable AC car'],
-  path: '/ThreeDayExcursion'
-
+    title: "Two Day Excursion",
+    subtitle: "Dive into culture, food, and history",
+    image: "/assets/photos/photo3.png",
+    places: [
+      "Heritage Walk",
+      "Food Tour",
+      "Durgiana Temple",
+      "Gobindgarh Fort",
+    ],
+    perks: [
+      "Overnight stay (3-star)",
+      "Guided city tour",
+      "Breakfast included",
+    ],
+    path: "/TwoDayExcursion",
+  },
+  {
+    title: "Three Day Excursion",
+    subtitle: "A complete immersive journey through Punjab",
+    image: "/assets/photos/photo7.png",
+    places: [
+      "Village Experience",
+      "Local Market Shopping",
+      "Museum Tour",
+      "Wagah Border",
+    ],
+    perks: [
+      "2-night stay",
+      "Cultural evening",
+      "All meals included",
+    ],
+    path: "/ThreeDayExcursion",
   },
 ];
 
 const SuggestiveTours = () => {
   return (
-    <div className="min-h-screen w-full px-4 sm:px-8 md:px-16 lg:px-24 py-12 bg-gradient-to-br from-blue-50 via-white to-blue-100 ">
-      <h1 className="text-3xl sm:text-5xl font-medium text-center text-darkblue mb-12 tracking-tight">
-        Suggested Packages
-      </h1>
-      <div className="grid gap-12 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    <section className="min-h-screen w-full px-4 sm:px-6 md:px-10 lg:px-20 xl:px-24 py-12 bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+      {/* Hero Section */}
+      <div className="text-center max-w-4xl mx-auto mb-12">
+        <h1 className="inline-block text-4xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-r from-darkblue to-indigo-700 bg-clip-text text-transparent mb-4 tracking-tight leading-tight px-1">
+          Suggested Tour Packages
+        </h1>
+
+        <p className="text-lg text-gray-600 dark:text-gray-500 max-w-2xl mx-auto leading-relaxed">
+          Explore Amritsar and beyond with our handcrafted
+          excursions designed for comfort, culture, and
+          unforgettable memories.
+        </p>
+      </div>
+
+      {/* Tour Cards Grid */}
+      <div className="grid gap-8 sm:gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {tours.map((tour, idx) => (
           <div
             key={tour.title}
-            className="relative group bg-white  rounded-3xl shadow-xl overflow-hidden transition-transform hover:-translate-y-2 hover:shadow-2xl"
+            className="group bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-2xl hover:shadow-blue-100 transition-all duration-500 ease-out transform hover:-translate-y-3"
           >
-            <div className="h-56 overflow-hidden">
+            {/* Image & Badge */}
+            <div className="relative h-56 overflow-hidden">
               <img
                 src={tour.image}
                 alt={tour.title}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-in-out"
               />
-              <span className="absolute top-4 left-4 bg-darkblue text-white text-xs px-3 py-1 rounded-full shadow">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              <span className="absolute top-5 left-5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-xs font-semibold px-4 py-1.5 rounded-full shadow-lg transform transition-transform group-hover:scale-105">
                 {tour.title}
               </span>
             </div>
-            <div className="p-6 flex flex-col h-full">
-              <h2 className="text-xl font-semibold text-darkblue mb-2 text-center">
+
+            {/* Content */}
+            <div className="p-6 flex flex-col">
+              <h2 className="text-xl font-bold text-darkblue mb-1">
                 {tour.title}
               </h2>
-              <p className="text-center text-gray-500 dark:text-gray-300 mb-4 text-base">
-                What's included in this package:
+              <p className="text-gray-500 text-sm mb-5">
+                {tour.subtitle}
               </p>
-              <div>
-                <h3 className="text-lg font-medium text-darkblue mb-1">Places</h3>
-                <ul className="flex flex-wrap gap-2 mb-4">
+
+              {/* Places */}
+              <div className="mb-5">
+                <h3 className="text-sm font-semibold text-gray-700 uppercase tracking-wider mb-2">
+                  Places Visited
+                </h3>
+                <div className="flex flex-wrap gap-2">
                   {tour.places.map((place) => (
-                    <li
+                    <span
                       key={place}
-                      className="bg-blue-100 text-darkblue px-3 py-1 rounded-full text-sm font-medium"
+                      className="bg-blue-50 text-blue-800 text-xs px-3 py-1 rounded-full font-medium border border-blue-200 group-hover:bg-blue-100 transition-colors"
                     >
                       {place}
-                    </li>
+                    </span>
                   ))}
-                </ul>
-                <h3 className="text-lg font-medium text-darkblue mb-1">Other Perks</h3>
-                <ul className="mb-6">
-                  {tour.perks.map((perk) => (
-                    <li key={perk} className="flex items-center gap-2 text-gray-700  text-sm">
-                      <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </div>
+              </div>
+
+              {/* Perks */}
+              <div className="mb-6">
+                <h3 className="text-sm font-semibold text-gray-700 uppercase tracking-wider mb-2">
+                  What’s Included
+                </h3>
+                <ul className="space-y-1.5">
+                  {tour.perks.map((perk, i) => (
+                    <li
+                      key={i}
+                      className="flex items-center gap-2 text-gray-700 text-sm"
+                    >
+                      <svg
+                        className="w-4 h-4 text-green-500 flex-shrink-0"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M5 13l4 4L19 7"
+                        />
                       </svg>
-                      {perk}
+                      <span>{perk}</span>
                     </li>
                   ))}
                 </ul>
               </div>
+
+              {/* CTA Button */}
               {tour.path ? (
                 <Link
                   to={tour.path}
-                  className="bg-darkblue text-white px-5 py-2 rounded-full font-normal shadow hover:bg-darkblue/80 transition-colors duration-200 text-center"
+                  className="mt-auto bg-gradient-to-r from-darkblue to-indigo-700 text-white font-semibold py-3 px-6 rounded-full shadow-md hover:shadow-lg hover:from-indigo-700 hover:to-blue-800 transition-all duration-300 text-center transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-indigo-300"
                 >
-                  View Itinerary
+                  View Full Itinerary
                 </Link>
               ) : (
                 <button
-                  className="bg-darkblue text-white px-5 py-2 rounded-full font-normal shadow opacity-60 cursor-not-allowed"
                   disabled
+                  className="mt-auto bg-gray-300 text-gray-500 font-semibold py-3 px-6 rounded-full cursor-not-allowed opacity-60"
                 >
-                  View Itinerary
+                  Coming Soon
                 </button>
               )}
             </div>
           </div>
         ))}
       </div>
-    </div>
+
+      {/* Optional: Call to Action Below */}
+      <div className="text-center mt-16">
+        <p className="text-gray-600 mb-4">
+          Can't find the perfect tour?
+        </p>
+        <Link
+          to="/contact"
+          className="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-6 py-3 rounded-full shadow transition-all duration-300 transform hover:scale-105"
+        >
+          Customize Your Tour
+        </Link>
+      </div>
+    </section>
   );
 };
 

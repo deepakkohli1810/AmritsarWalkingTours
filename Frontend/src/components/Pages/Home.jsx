@@ -8,7 +8,7 @@ import SuggestiveTours from '../SuggestiveTours'
 
 import BottomBar from '../bottomBar'
 import Footer from '../Footer'
-import TourDetailsPage from '../TourDetailsPage'
+
 
 const Home = () => {
   return (

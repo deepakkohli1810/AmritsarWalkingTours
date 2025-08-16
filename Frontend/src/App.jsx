@@ -9,11 +9,9 @@ import SuggestiveTours from './components/SuggestiveTours'
 import ScrollToTop from './components/ScrollToTop'
 import BottomBar from './components/bottomBar'
 import Footer from './components/Footer'
-import TourDetailsPage from './components/TourDetailsPage'
 import Home from './components/Pages/Home'
 import GoldenTemple from './components/Pages/GoldenTemple'
 import BorderTour from './components/Pages/WagahBorder'
-import FoodTour from './components/Pages/FoodTour'
 import HeritageWalk from './components/Pages/HeritageWalk'
 import VillageTour from './components/Pages/VillageTour'
 import OneDayExcursion from './components/Pages/OneDayExcursion'
@@ -25,6 +23,9 @@ import AllCards from './components/cards/AllCards'
 import AboutUs from './components/AboutUs'
 import Register from './components/Register'
 import Contact from './components/Pages/ContactUs'
+import TourDetailsPage from './components/Pages/TourDetailsPage'
+import FoodWalkingTour from './components/Pages/FoodWalkingTour'
+import Gallery from './components/Pages/Gallery'
 const App = () => {
   return (
     <>
@@ -39,14 +40,22 @@ const App = () => {
           path="/BorderTour"
           element={<BorderTour />}
         />
-        <Route path="/FoodTour" element={<FoodTour />} />
+        <Route
+          path="/FoodTour"
+          element={<FoodWalkingTour />}
+        />
         <Route
           path="/VillageTour"
           element={<VillageTour />}
         />
+
         <Route
           path="/HeritageWalk"
           element={<HeritageWalk />}
+        />
+        <Route
+          path="/Gallery"
+          element={<Gallery />}
         />
         <Route
           path="/OneDayExcursion"
@@ -66,7 +75,10 @@ const App = () => {
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/register" element={<Register />} />
         <Route path="/Contact" element={<Contact />} />
-
+        <Route
+          path="/TourDetailsPage"
+          element={<TourDetailsPage />}
+        />
       </Routes>
     </>
   );

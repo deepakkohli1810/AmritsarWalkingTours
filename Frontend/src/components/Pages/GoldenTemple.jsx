@@ -17,7 +17,8 @@ import {
   Video,
   ExternalLink,
   BookOpen,
-  Phone
+  Phone,
+  Mails,
 } from "lucide-react";
 import Navbar from "../Navbar";
 import DatePicker from "react-datepicker";
@@ -27,9 +28,12 @@ import WhyUs from "../WhyUs";
 import Footer from "../Footer";
 import BottomBar from "../bottomBar";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const TourDetailsPage = () => {
   const [currentImage, setCurrentImage] = useState(0);
+  const navigate = useNavigate();
   const [startDate, setStartDate] = useState(new Date());
   const [guests, setGuests] = useState(1);
   const [previewOpen, setPreviewOpen] = useState(false);
@@ -41,24 +45,11 @@ const TourDetailsPage = () => {
     useState(false);
 
   const images = [
-    
-    "/assets/GoldenTemple/photo1.png",
-    "/assets/GoldenTemple/photo2.png",
-    "/assets/GoldenTemple/photo3.png",
-    "/assets/GoldenTemple/photo4.png",
-    "/assets/GoldenTemple/photo5.png",
-    "/assets/GoldenTemple/photo6.png",
-    "/assets/GoldenTemple/photo7.png",
-    "/assets/GoldenTemple/photo8.png",
-    "/assets/GoldenTemple/photo9.png",
-    "/assets/GoldenTemple/photo10.png",
-    "/assets/GoldenTemple/photo11.png",
-    "/assets/GoldenTemple/photo12.png",
+    "/assets/GoldenTemple/photo17.png",
     "/assets/GoldenTemple/photo13.png",
     "/assets/GoldenTemple/photo14.png",
     "/assets/GoldenTemple/photo15.png",
     "/assets/GoldenTemple/photo16.png",
-    "/assets/GoldenTemple/photo17.png",
     "/assets/GoldenTemple/photo18.png",
     "/assets/GoldenTemple/photo19.png",
     "/assets/GoldenTemple/photo20.png",
@@ -108,66 +99,57 @@ const TourDetailsPage = () => {
   const itinerary = [
     {
       title: "Hotel Pickup",
-      duration: "08:00 AM",
+      duration: "09:00 AM",
       description:
         "Your journey begins with a comfortable pickup from your hotel in Amritsar. Our guide will share insights about the day ahead and the significance of the Golden Temple.",
-      icon: "🏠",
     },
     {
       title: "Introduction to Sikhism",
       duration: "15 min",
       description:
         "Learn the foundational principles of Sikhism and the historical context of the Golden Temple before your visit.",
-      icon: "☸️",
-    },
-    {
-      title: "Sacred Foot Washing",
-      duration: "10 min",
-      description:
-        "Experience the tradition of washing your feet before entering the temple complex, symbolizing purification and humility.",
-      icon: "💧",
     },
     {
       title: "Parikrama (Circumambulation)",
       duration: "20 min",
       description:
         "Walk along the marble pathway surrounding the Amrit Sarovar (Pool of Nectar) while learning about its spiritual significance.",
-      icon: "🚶‍♂️",
     },
     {
       title: "Darshan of Harmandir Sahib",
       duration: "45 min",
       description:
         "Enter the Golden Temple and experience the profound spiritual atmosphere. Witness the stunning architecture and golden facade up close.",
-      icon: "🕌",
+    },
+    {
+      title: "Akal Takht Visit",
+      duration: "20 min",
+      description:
+        "Visit the Akal Takht, the highest seat of temporal authority in Sikhism, and learn about its role in Sikh governance and history.",
+    },
+    {
+      title: "Baba Budha Sahib Beri",
+      duration: "15 min",
+      description:
+        "Pay respects at the historic Beri tree where Baba Budha Ji, a revered Sikh figure, meditated and served the Sikh Gurus.",
     },
     {
       title: "Langar Experience",
       duration: "30 min",
       description:
         "Participate in the world's largest community kitchen, where volunteers serve free meals to all visitors regardless of background.",
-      icon: "🍛",
-    },
-    {
-      title: "Palki Sahib Ceremony",
-      duration: "45 min",
-      description:
-        "Witness the sacred ceremony where the Guru Granth Sahib is carried in procession to its nightly resting place.",
-      icon: "📖",
     },
     {
       title: "Sikh Museum Visit",
       duration: "25 min",
       description:
         "Explore the Central Sikh Museum to learn about Sikh history, martyrs, and the evolution of the Golden Temple.",
-      icon: "🖼️",
     },
     {
       title: "Return to Hotel",
       duration: "05:00 PM",
       description:
         "Reflect on your spiritual journey as you return to your hotel, with opportunities to ask your guide additional questions.",
-      icon: "🏨",
     },
   ];
 
@@ -182,7 +164,7 @@ const TourDetailsPage = () => {
     {
       url: "https://www.youtube.com/embed/mVz0V9lqivw",
       title:
-        "Langar at Golden Temple: World Largest Free Kitchen",
+        "Langar at Golden Temple: World’s Largest Free Kitchen",
       description:
         "Discover how the Golden Temple serves thousands daily with its incredible community kitchen.",
     },
@@ -210,28 +192,6 @@ const TourDetailsPage = () => {
 
       <div className="max-w-7xl mx-auto px-4 py-6 sm:py-8">
         {/* Breadcrumb Navigation */}
-        <nav className="mb-6 hidden sm:block">
-          <ol className="flex items-center text-sm text-gray-500">
-            <li>
-              <a href="/" className="hover:text-darkblue">
-                Home
-              </a>
-            </li>
-            <span className="mx-2">/</span>
-            <li>
-              <a
-                href="/tours"
-                className="hover:text-darkblue"
-              >
-                Tours
-              </a>
-            </li>
-            <span className="mx-2">/</span>
-            <li className="text-darkblue font-medium">
-              Golden Temple Tour
-            </li>
-          </ol>
-        </nav>
 
         {/* Tour Header */}
         <header className="mb-8">
@@ -248,7 +208,7 @@ const TourDetailsPage = () => {
 
               <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">
                 AWT's Special{" "}
-                <span className="text-darkblue">
+                <span className="text-gradient bg-gradient-to-r from-[#332D56] to-[#4E6688] bg-clip-text text-transparent">
                   Golden Temple Tour
                 </span>
               </h1>
@@ -408,7 +368,7 @@ const TourDetailsPage = () => {
             {/* Tour Tabs */}
             <div className="mb-8">
               <div className="border-b border-gray-200">
-                <nav className="flex -mb-px space-x-8">
+                <nav className="flex -mb-px space-x-6 overflow-x-auto scrollbar-hide sm:space-x-8 ">
                   {[
                     {
                       id: "overview",
@@ -1103,8 +1063,130 @@ const TourDetailsPage = () => {
               </AnimatePresence>
             </div>
 
+            {/* Pricing Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="bg-white block md:hidden rounded-2xl shadow-xl border border-gray-100 overflow-hidden"
+            >
+              <div className="bg-gradient-to-r from-[#332D56] to-[#4E6688] p-5">
+                <div className="flex justify-between items-start">
+                  <div>
+                    <p className="text-amber-100 text-sm">
+                      Starting from
+                    </p>
+                    <div className="flex items-baseline">
+                      <span className="text-3xl font-bold text-white">
+                        ₹1499
+                      </span>
+                      <span className="text-amber-100 ml-1">
+                        per person
+                      </span>
+                    </div>
+                  </div>
+                  <div className="bg-white/20 px-3 py-1 rounded-full text-white text-sm">
+                    Most Popular
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-5 space-y-5">
+                {/* Date Selection */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Select Date
+                  </label>
+                  <div className="relative">
+                    <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <DatePicker
+                      selected={startDate}
+                      onChange={(date) =>
+                        setStartDate(date)
+                      }
+                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-darkblue/20 focus:border-darkblue outline-none transition"
+                      dateFormat="EEE dd MMM, yyyy"
+                      minDate={new Date()}
+                      popperPlacement="bottom"
+                      placeholderText="Select date"
+                    />
+                  </div>
+                </div>
+
+                {/* Guests Selection */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Number of Guests
+                  </label>
+                  <div className="relative">
+                    <Users className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <select
+                      value={guests}
+                      onChange={(e) =>
+                        setGuests(Number(e.target.value))
+                      }
+                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-darkblue/20 focus:border-darkblue outline-none appearance-none bg-white transition"
+                    >
+                      {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(
+                        (num) => (
+                          <option key={num} value={num}>
+                            {num} Guest{num > 1 ? "s" : ""}
+                          </option>
+                        )
+                      )}
+                    </select>
+                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                      <ChevronDown className="w-5 h-5" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Price Summary */}
+                <div className="border-t border-gray-200 pt-4">
+                  <div className="flex justify-between text-base">
+                    <span>Base Price (x{guests})</span>
+                    <span>
+                      ₹{(1499 * guests).toLocaleString()}
+                    </span>
+                  </div>
+
+                  <div className="border-t border-gray-200 mt-3 pt-3">
+                    <div className="flex justify-between font-bold text-lg">
+                      <span>Total</span>
+                      <span>
+                        ₹{(1499 * guests).toLocaleString()}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Book Now Button */}
+
+                <Link
+                  to="/BookNow"
+                  className="w-full bg-gradient-to-r from-[#332D56] to-[#4E6688] bg-darkblue text-white py-3.5 rounded-xl font-semibold hover:bg-darkblue/90 transition flex items-center justify-center"
+                >
+                  Book Now
+                </Link>
+                {/* Trust Indicators */}
+                <div className="space-y-2 pt-2 border-t border-gray-200">
+                  <div className="flex items-center text-sm text-gray-600">
+                    <Check className="w-4 h-4 text-green-500 mr-2" />
+                    Free cancellation up to 24 hours before
+                  </div>
+                  <div className="flex items-center text-sm text-gray-600">
+                    <Check className="w-4 h-4 text-green-500 mr-2" />
+                    Reserve now & pay later
+                  </div>
+                  <div className="flex items-center text-sm text-gray-600">
+                    <Check className="w-4 h-4 text-green-500 mr-2" />
+                    Secure payment
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
             {/* Suggested Videos */}
-            <section className="mb-10">
+            <section className="mb-10 mt-10 ">
               <div className="flex items-center justify-between mb-5">
                 <h2 className="text-2xl font-bold text-gray-900 flex items-center">
                   <Video className="w-6 h-6 text-darkblue mr-2" />
@@ -1157,9 +1239,9 @@ const TourDetailsPage = () => {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden"
+                className="bg-white hidden md:block rounded-2xl shadow-xl border border-gray-100 overflow-hidden"
               >
-                <div className="bg-gradient-to-r from-amber-500 to-amber-600 p-5">
+                <div className="bg-gradient-to-r from-[#332D56] to-[#4E6688] p-5 ">
                   <div className="flex justify-between items-start">
                     <div>
                       <p className="text-amber-100 text-sm">
@@ -1167,7 +1249,7 @@ const TourDetailsPage = () => {
                       </p>
                       <div className="flex items-baseline">
                         <span className="text-3xl font-bold text-white">
-                          ₹899
+                          ₹1499
                         </span>
                         <span className="text-amber-100 ml-1">
                           per person
@@ -1235,49 +1317,29 @@ const TourDetailsPage = () => {
                     <div className="flex justify-between text-base">
                       <span>Base Price (x{guests})</span>
                       <span>
-                        ₹{(899 * guests).toLocaleString()}
+                        ₹{(1499 * guests).toLocaleString()}
                       </span>
                     </div>
-                    <div className="flex justify-between text-base mt-2">
-                      <span>Service Fee</span>
-                      <span>
-                        ₹{(89 * guests).toLocaleString()}
-                      </span>
-                    </div>
+
                     <div className="border-t border-gray-200 mt-3 pt-3">
                       <div className="flex justify-between font-bold text-lg">
                         <span>Total</span>
                         <span>
                           ₹
-                          {(
-                            (899 + 89) *
-                            guests
-                          ).toLocaleString()}
+                          {(1499 * guests).toLocaleString()}
                         </span>
                       </div>
                     </div>
                   </div>
 
                   {/* Book Now Button */}
-                  <button
-                    onClick={() => {
-                      const bookingData = {
-                        tour: "Golden Temple Tour",
-                        date: startDate,
-                        guests,
-                        price: (899 + 89) * guests,
-                      };
-                      localStorage.setItem(
-                        "bookingDetails",
-                        JSON.stringify(bookingData)
-                      );
-                      window.location.href = "/register";
-                    }}
-                    className="w-full bg-darkblue text-white py-3.5 rounded-xl font-semibold hover:bg-darkblue/90 transition flex items-center justify-center"
+
+                  <Link
+                    to="/BookNow"
+                    className="w-full bg-gradient-to-r to-[#332D56] from-[#4E6688] text-white py-3.5 rounded-xl font-semibold hover:bg-darkblue/90 transition flex items-center justify-center"
                   >
                     Book Now
-                  </button>
-
+                  </Link>
                   {/* Trust Indicators */}
                   <div className="space-y-2 pt-2 border-t border-gray-200">
                     <div className="flex items-center text-sm text-gray-600">
@@ -1296,7 +1358,6 @@ const TourDetailsPage = () => {
                   </div>
                 </div>
               </motion.div>
-
               {/* Why Book With Us */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -1406,13 +1467,13 @@ const TourDetailsPage = () => {
                         href="tel:+911234567890"
                         className="text-darkblue hover:underline"
                       >
-                        +91 12345 67890
+                        +91 95923 42444
                       </a>
                     </div>
                   </div>
                   <div className="flex items-center text-sm">
                     <div className="bg-blue-100 text-blue-700 w-8 h-8 rounded-full flex items-center justify-center mr-3">
-                      {/* <Mail className="w-4 h-4" /> */}
+                      <Mails className="w-4 h-4" />
                     </div>
                     <div>
                       <p className="font-medium">
@@ -1422,7 +1483,7 @@ const TourDetailsPage = () => {
                         href="mailto:info@amritsartours.com"
                         className="text-darkblue hover:underline"
                       >
-                        info@amritsartours.com
+                        info@amritsarwalkingtours.com
                       </a>
                     </div>
                   </div>
@@ -1462,29 +1523,17 @@ const TourDetailsPage = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <button
-                  onClick={() => {
-                    const bookingData = {
-                      tour: "Golden Temple Tour",
-                      date: startDate,
-                      guests,
-                      price: (899 + 89) * guests,
-                    };
-                    localStorage.setItem(
-                      "bookingDetails",
-                      JSON.stringify(bookingData)
-                    );
-                    window.location.href = "/register";
-                  }}
+                  onClick={() => {       navigate("/BookNow")}  }
                   className="px-6 py-3 bg-white text-darkblue font-semibold rounded-xl shadow-md hover:bg-gray-100 transition text-center"
                 >
                   Book Your Spiritual Journey
                 </button>
-                <a
-                  href="/contact"
+                <Link
+                  to="/contact"
                   className="px-6 py-3 bg-transparent border-2 border-white text-white font-semibold rounded-xl hover:bg-white/10 transition text-center"
                 >
                   Have Questions? Contact Us
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -1531,7 +1580,7 @@ const TourDetailsPage = () => {
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6 text-white">
                   <div className="flex justify-between items-end">
                     <div>
-                      <h2 className="text-2xl font-bold mb-2">
+                      <h2 className="text-sm lg:text-xl md:text-xl font-bold mb-0">
                         Harmandir Sahib
                       </h2>
                       <p className="text-gray-200">
